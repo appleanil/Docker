@@ -18,15 +18,24 @@ without images can create images
 4. docker run -d -p 6699:8080 --name jenkinscon jenkins/jenkins
 
 
-PUSH, PULL AND TAG TO DOCKER-HUB
-===============================
+
+TAG NAME IN LINUX-SERVER
+========================
 
 1. docker tag anildocker11/maven-anil:1.0.0  ----------------> give tag name
 
-2. docker push anildocker11/maven-anil:1.0.0 .  ------------> push to docker-hub repo
+================================================================================================================================================
+***  DOCKER IMAGES LO TOMCAT AND MAVEN UNTE APPUDU TOMCAT KI MANA NAME(anil-tomcat) AND VERSION(0.0.0) THO TAG CHEYVACHU THEN PUSH AND PULL  ***
+================================================================================================================================================
 
-3. docker pull anildocker11/maven-anil:1.0.0  ---------------> pull from docker-hub repo
 
+
+PUSH AND PULL TO DOCKER-HUB
+===============================
+
+1. docker push anildocker11/maven-anil:1.0.0 .  ------------> push to docker-hub repo
+
+2. docker pull anildocker11/maven-anil:1.0.0  ---------------> pull from docker-hub repo
  
 
 
