@@ -58,9 +58,6 @@ c) Filter by status:
 docker ps -a --filter "status=exited" -q
 
 
-So if you want to remove a specific container by ID, you can do:
-
-docker rm -f $(docker ps -a --filter "id=91b160bab7ea" -q)
 
 
 
