@@ -5,7 +5,7 @@ MAVEN PACKAGE OR BUILD BY DOCKER OR DOCKER IMAGES
 
 METHOD-1
 --------
-1. docker build -t anildocker11/maven-anil:1.0.0-----> maven package----------> build by maven through      
+1. docker build -t anildocker11/maven-anil:1.0.0 .   -----> maven package----------> build by maven through      
 
 anildocker11(optional--->ivachu leda ivvakudadu)
 
@@ -16,7 +16,7 @@ give version also
 
 METHOD-2
 --------
-2. docker build -f Dockerfile -t anildocker11/maven-anil:1.0.0
+2. docker build -f Dockerfile -t anildocker11/maven-anil:1.0.0 .
 
 here dockerfile means we should have file in linux server | in that dockerfile having instructions
 
