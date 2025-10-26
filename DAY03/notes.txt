@@ -57,6 +57,8 @@ docker ps -a --filter "id=91b160bab7ea" -q
 c) Filter by status:
 docker ps -a --filter "status=exited" -q
 
+docker ps -a --filter "status=running" -q------------>running container ID
+ 
 
 
 
