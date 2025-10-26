@@ -189,6 +189,9 @@ docker run --memory="64m" -d -p 8082:8080 --name javawebapp2 kkeducation12345/ja
 
 docker inspect <cid> --> OOMKilled
 
+docker inspect --format '{{.State.OOMKilled}}' ubuntu
+
+
 
 
 How to copy files from system to continer and container to system?
