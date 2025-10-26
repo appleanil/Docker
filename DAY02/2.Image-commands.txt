@@ -20,11 +20,14 @@ without images can create images
 
 PUSH, PULL AND TAG TO DOCKER-HUB
 ===============================
-1. docker push anildocker11/maven-anil-1.0.0 .  ------------> push to docker-hub repo
 
-2. docker pull anildocker11/maven-anil-1.0.0  ---------------> pull from docker-hub repo
+1. docker tag anildocker11/maven-anil-1.0.0  ----------------> give tag name
 
-3. docker tag anildocker11/maven-anil-1.0.0  ----------------> give tag name 
+2. docker push anildocker11/maven-anil-1.0.0 .  ------------> push to docker-hub repo
+
+3. docker pull anildocker11/maven-anil-1.0.0  ---------------> pull from docker-hub repo
+
+ 
 
 
 
