@@ -29,6 +29,12 @@ without images can create images
 
 
 
+| Tool          | Default Port | Notes                                                                 |
+| ------------- | ------------ | --------------------------------------------------------------------- |
+| **Tomcat**    | 8080         | Web application server. Can be changed in `server.xml`.               |
+| **SonarQube** | 9000         | Web interface. Can be changed in `sonar.properties`.                  |
+| **Nexus**     | 8081         | Repository manager (Nexus 3.x). Can be changed in `nexus.properties`. |
+| **Jenkins**   | 8080         | Web UI. Can be changed using `--httpPort` or environment variable.    |
 
 
 
