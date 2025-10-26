@@ -87,6 +87,8 @@ docker save -o docker-maven-0.0.0.tar anildocker11/docker-maven:0.0.0-----------
 
 docker load -i /path/to/destination/docker-maven-0.0.0.tar-----------------------> untar file
 
+docker load -i imagename.tar
+
 
 
 | Part                | Description                                                       |
