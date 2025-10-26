@@ -18,6 +18,15 @@ without images can create images
 4. docker run -d -p 6699:8080 --name jenkinscon jenkins/jenkins
 
 
+PUSH, PULL AND TAG TO DOCKER-HUB
+===============================
+1. docker push anildocker11/maven-anil-1.0.0 .  ------------> push to docker-hub repo
+
+2. docker pull anildocker11/maven-anil-1.0.0  ---------------> pull from docker-hub repo
+
+3. docker tag anildocker11/maven-anil-1.0.0  ----------------> give tag name 
+
+
 
 | Part                | Description                                                       |
 | ------------------- | ----------------------------------------------------------------- |
