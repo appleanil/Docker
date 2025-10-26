@@ -59,7 +59,33 @@ PUSH AND PULL TO DOCKER-HUB
 1. docker push anildocker11/maven-anil:1.0.0 .  ------------> push to docker-hub repo
 
 2. docker pull anildocker11/maven-anil:1.0.0  ---------------> pull from docker-hub repo
- 
+
+
+HOW TO MOVE A DOCKER IMAGE FROM ONE SERVER TO ANOTHER SERVER?
+=============================================================
+
+METHOD-1
+---------
+
+PULL AND PUSH
+
+METHOD-2
+--------
+
+TAKEN BACKUP INTO NEXUS/JFROG/EC2
+
+METHOD-3
+--------
+
+USE SCP COMMAND
+
+scp -i ~Downloads/pem file ubuntu@192.168.1.100:/home/ubuntu/filename
+
+docker save -o IMAGE_NAME.tar IMAGE_NAME:TAG
+
+docker save -o docker-maven-0.0.0.tar anildocker11/docker-maven:0.0.0------------> save to tar file
+
+docker load -i /path/to/destination/docker-maven-0.0.0.tar-----------------------> untar file
 
 
 
@@ -103,7 +129,7 @@ docker build -t <image> <buildContext>
 docker build -t kkeducation123456/java-web-app:1 .
 docker build -t nexus.jio.com/java-web-app:1 .
 
-docker build -f customName kkeducation123456/java-web-app:1 .
+docker build -t customName kkeducation123456/java-web-app:1 .
 
 
 How to list the images
