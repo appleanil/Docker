@@ -1,6 +1,6 @@
 sudo usermod -aG ubuntu docker
 
-docker build -f anildocker11/maven-anil-1.0.0-----> maven package----------> build by maven through      DOCKER IMAGES
+docker build -t anildocker11/maven-anil-1.0.0-----> maven package----------> build by maven through      DOCKER IMAGES
 
 docker run -d -p 7000:8080 --name mavencon anildocker11/maven-anil-1.0.0---->deploy to tomcat through    DOCKER CONTAINER
 
