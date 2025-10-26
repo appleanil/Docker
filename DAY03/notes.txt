@@ -241,4 +241,5 @@ docker inspect --format "{{.NetworkSettings.IPAddress}},{{.State.Status}}" 0d2da
 
 docker inspect --format "IP Address: {{.NetworkSettings.Networks.bridge.IPAddress}}, Name: {{.Name}}" mavenapp
 
+docker inspect 3369d1897ce3 --format '{{json .NetworkSettings}}' | grep -in "IPAddress"---------------> like this also we can practice
 
