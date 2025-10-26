@@ -81,7 +81,7 @@ USE SCP COMMAND
 
 scp -i ~Downloads/pem file ubuntu@192.168.1.100:/home/ubuntu/filename
 
-docker save -o IMAGE_NAME.tar IMAGE_NAME:TAG
+docker save -o IMAGE_NAME.tar IMAGE_NAME:TAG-------------------------------------> we can give image ID and image NAME
 
 docker save -o docker-maven-0.0.0.tar anildocker11/docker-maven:0.0.0------------> save to tar file
 
