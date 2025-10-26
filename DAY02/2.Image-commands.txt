@@ -1,3 +1,41 @@
+sudo usermod -aG ubuntu docker
+
+docker build -f anildocker11/maven-anil-1.0.0-----> maven package----------> build by maven through      DOCKER IMAGES
+
+docker run -d -p 7000:8080 --name mavencon anildocker11/maven-anil-1.0.0---->deploy to tomcat through    DOCKER CONTAINER
+
+
+
+without images can create images
+================================
+
+1. docker run -d -p 1234:8080 --name tomcatcon tomcat
+
+2. docker run -d -p 6666:9000 --name sonarcon sonarqube
+
+3. docker run -d -p 9999:8081 --name nexuscon sonatype/nexus3
+
+4. docker run -d -p 6699:8080 --name jenkinscon jenkins/jenkins
+
+
+
+| Part                | Description                                                       |
+| ------------------- | ----------------------------------------------------------------- |
+| `docker run`        | Start a new container                                             |
+| `-d`                | Run in detached (background) mode                                 |
+| `-p 6699:8080`      | Map host port **6699** → container port **8080** (Jenkins web UI) |
+| `--name jenkinscon` | Name the container `jenkinscon`                                   |
+| `jenkins/jenkins`   | Use the **official Jenkins image** from Docker Hub                |
+
+
+
+
+
+
+
+
+
+
 commands
 ========
 
