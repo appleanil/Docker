@@ -92,6 +92,9 @@ Status": "running",
             "StartedAt": "2025-10-30T17:25:07.885507377Z",
             "FinishedAt":
 
+  1. docker inspect --format '{{.State.OOMKilled}}' <container_id>
+  2. docker inspect --format '{{.State.Running}}' <container_id>
+
 
 
 
