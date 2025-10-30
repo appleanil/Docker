@@ -71,7 +71,7 @@ HOW TO PICK PARTICULAR COLUMN
   3.  docker ps -a --format "{{.ID}} {{.Command}}"------> Container ID + Command ID
   4.  docker ps -a --format "{{.ID}} {{.Image}}"--------> Container ID + Image ID
   5.  docker ps -a --format "{{.ID}}"-------------------> Container ID 
-  6. docker ps -a --format "{{.ID}} {{.Status}}"--------> Container ID + Status ID up or exited
+  6.  docker ps -a --format "{{.ID}} {{.Status}}"--------> Container ID + Status ID up or exited
 
 
 
