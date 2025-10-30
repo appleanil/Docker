@@ -66,7 +66,7 @@ docker ps -a --filter "status=running" -q------------>running container ID
 HOW TO PICK PARTICULAR COLUMN
 =============================
 
-  1.  docker ps -a --format "{{.ID}} {{.ports}}"--------> Container ID + Port ID
+  1.  docker ps -a --format "{{.ID}} {{.Ports}}"--------> Container ID + Port ID
   2.  docker ps -a --format "{{.ID}} {{.Names}}"--------> Container ID + Names
   3.  docker ps -a --format "{{.ID}} {{.Command}}"------> Container ID + Command ID
   4.  docker ps -a --format "{{.ID}} {{.Image}}"--------> Container ID + Image ID
