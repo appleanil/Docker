@@ -78,6 +78,25 @@ HOW TO PICK PARTICULAR COLUMN
 
 
 
+
+
+Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 5431,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2025-10-30T17:25:07.885507377Z",
+            "FinishedAt":
+
+
+
+
+
+
 How to remove all stopeed conatainers?
 --------------------------------------
 
