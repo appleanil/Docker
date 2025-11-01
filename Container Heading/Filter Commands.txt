@@ -1,6 +1,22 @@
 CONTAINER ID   IMAGE   COMMAND   CREATED   STATUS   PORTS   NAMES
 Let’s go through each column one by one with correct filter commands 👇
 
+METHOD-1
+========
+1. docker ps -a --format "{{.Status}} {{.Port}}"
+
+2. docker ps -a --format "{{.ID}} {{.Command}}"
+
+3. docker ps -a --format "{{.Container}} {{.CreatedAt}}"
+
+4. docker ps -a --format "{{.ID}} {{.Names}}"
+
+5. docker ps -a --format "{{.ID}}"
+
+
+METHOD-2
+========
+
 Correct ways to filter by container:
 a) Filter by container name:
 docker ps -a --filter "name=my-container" -q
@@ -181,15 +197,3 @@ By Volume	docker ps -a --filter "volume=nexus-data"	Containers using volume
 By Label	docker ps -a --filter "label=maintainer=anil"	Match label
 By Before	docker ps -a --filter "before=sonarqube"	Created before another
 By Since	docker ps -a --filter "since=nexus"	Created after another
-
-🖥️ Bonus: Custom Output Columns
-You can customize what’s shown:
-
-bash
-Copy code
-docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}"
-Or only show container IDs:
-
-bash
-Copy code
-docker ps -a --format "{{.ID}}"
