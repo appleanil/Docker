@@ -1,1 +1,111 @@
+⚙️ Base Command
+docker images
+
+
+Shows:
+
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+========================================================
+
+🧱 1️⃣ Filter by Repository name
+================================
+Example:
+docker images --filter "reference=sonarqube"
+
+
+✅ Shows all images whose repository name starts with or equals sonarqube.
+
+🏷️ 2️⃣ Filter by Tag
+====================
+
+There’s no direct “tag” filter,
+but you can use the reference filter to match both repo and tag.
+
+Example:
+docker images --filter "reference=sonarqube:latest"
+
+
+✅ Shows only the image where:
+==============================
+
+REPOSITORY = sonarqube
+---------------------
+
+TAG = latest
+
+🔢 3️⃣ Filter by Image ID
+Example:
+docker images --filter "reference=*047bd8988268*"
+
+
+⚠️ docker images doesn’t have a dedicated image ID filter,
+so we use shell-level filtering like grep:
+
+docker images | grep 047bd8988268
+
+
+✅ Shows the image with that ID.
+
+⏰ 4️⃣ Filter by Age (Created Time)
+===================================
+
+No direct filter exists — use grep or sorting:
+
+docker images | grep "weeks ago"
+
+
+or to sort by creation time:
+
+docker images --format "{{.Repository}} {{.Tag}} {{.CreatedSince}}" | sort -k3
+
+📦 5️⃣ Filter by Size
+=====================
+
+Again, no Docker-native filter — use grep or awk:
+
+docker images | grep "604MB"
+
+
+or
+
+docker images | awk '$7 ~ /GB|MB/ && $7+0 > 500 {print}'
+
+🧹 6️⃣ Filter by Dangling (none) images
+=======================================
+Example:
+docker images --filter "dangling=true"
+
+
+✅ Shows untagged images (<none>).
+
+🏷️ 7️⃣ Filter by Label (if image built with LABEL)
+==================================================
+
+If your image Dockerfile had something like:
+
+LABEL maintainer="anil"
+
+
+Then you can filter:
+
+docker images --filter "label=maintainer=anil"
+
+⚙️ 8️⃣ Custom column output (using --format)
+============================================
+
+You can show only certain columns:
+
+docker images --format "table {{.Repository}}\t{{.Tag}}"
+
+
+Output example:
+
+REPOSITORY      TAG
+sonarqube       latest
+ubuntu          latest
+
+
+Or just image IDs:
+
+docker images --format "{{.ID}}"
 
