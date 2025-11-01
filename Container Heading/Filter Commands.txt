@@ -1,1 +1,183 @@
+CONTAINER ID   IMAGE   COMMAND   CREATED   STATUS   PORTS   NAMES
+Let’s go through each column one by one with correct filter commands 👇
 
+🧱 1️⃣ Filter by Container ID
+=============================
+✅ Command:
+bash
+Copy code
+docker ps -a --filter "id=<container_id>"
+Example:
+bash
+Copy code
+docker ps -a --filter "id=ce72a5e6825e"
+🟢 Shows only that container.
+
+You can also use partial ID:
+
+bash
+Copy code
+docker ps -a --filter "id=ce72"
+
+
+🏷️ 2️⃣ Filter by Image (Repository + Tag)
+=========================================
+✅ Command:
+bash
+Copy code
+docker ps -a --filter "ancestor=<image_name>"
+Example:
+bash
+Copy code
+docker ps -a --filter "ancestor=sonarqube:latest"
+🟢 Shows all containers created from that image.
+You can use partial image name like ancestor=sonarqube.
+
+
+📦 3️⃣ Filter by Container Name
+==============================
+✅ Command:
+bash
+Copy code
+docker ps -a --filter "name=<name>"
+Example:
+bash
+Copy code
+docker ps -a --filter "name=nexus"
+🟢 Shows all containers where the name matches (even partial names).
+
+
+⏰ 4️⃣ Filter by Creation Time (Before / Since)
+===============================================
+✅ Command:
+bash
+Copy code
+docker ps -a --filter "before=<container_name_or_id>"
+→ Shows containers created before that container.
+
+bash
+Copy code
+docker ps -a --filter "since=<container_name_or_id>"
+→ Shows containers created after that container.
+
+Example:
+bash
+Copy code
+docker ps -a --filter "before=sonarqube"
+docker ps -a --filter "since=nexus"
+
+
+⚙️ 5️⃣ Filter by Status
+=====================
+✅ Command:
+bash
+Copy code
+docker ps -a --filter "status=<state>"
+States:
+created
+
+restarting
+
+running
+
+paused
+
+exited
+
+dead
+
+Example:
+bash
+Copy code
+docker ps -a --filter "status=exited"
+docker ps -a --filter "status=running"
+🟢 Lists containers in that state.
+
+
+🔢 6️⃣ Filter by Exit Code
+=========================
+✅ Command:
+bash
+Copy code
+docker ps -a --filter "exited=<code>"
+Example:
+bash
+Copy code
+docker ps -a --filter "exited=0"
+🟢 Shows containers that exited successfully (exit code 0).
+
+
+🔗 7️⃣ Filter by Network
+=======================
+✅ Command:
+bash
+Copy code
+docker ps -a --filter "network=<network_name>"
+Example:
+bash
+Copy code
+docker ps -a --filter "network=bridge"
+🟢 Shows all containers connected to the bridge network.
+
+
+📁 8️⃣ Filter by Volume
+========================
+✅ Command:
+bash
+Copy code
+docker ps -a --filter "volume=<volume_name>"
+Example:
+bash
+Copy code
+docker ps -a --filter "volume=nexus-data"
+🟢 Shows containers using that volume.
+
+
+🏷️ 9️⃣ Filter by Label
+=======================
+✅ Command:
+bash
+Copy code
+docker ps -a --filter "label=<key=value>"
+Example:
+bash
+Copy code
+docker ps -a --filter "label=maintainer=anil"
+🟢 Shows containers built or run with that label.
+
+
+🧩 🔟 Combine Multiple Filters
+===============================
+✅ Command:
+bash
+Copy code
+docker ps -a \
+  --filter "status=exited" \
+  --filter "ancestor=ubuntu" \
+  --filter "name=test"
+🟢 Shows all exited containers from ubuntu image with name containing test.
+
+🧾 Quick Summary Table
+Filter Type	Command Example	Description
+By Container ID	docker ps -a --filter "id=ce72"	Match container ID
+By Name	docker ps -a --filter "name=nexus"	Match container name
+By Image	docker ps -a --filter "ancestor=sonarqube:latest"	Match image used
+By Status	docker ps -a --filter "status=running"	Filter by state
+By Exit Code	docker ps -a --filter "exited=0"	Filter by exit code
+By Network	docker ps -a --filter "network=bridge"	Containers in a network
+By Volume	docker ps -a --filter "volume=nexus-data"	Containers using volume
+By Label	docker ps -a --filter "label=maintainer=anil"	Match label
+By Before	docker ps -a --filter "before=sonarqube"	Created before another
+By Since	docker ps -a --filter "since=nexus"	Created after another
+
+🖥️ Bonus: Custom Output Columns
+You can customize what’s shown:
+
+bash
+Copy code
+docker ps -a --format "table {{.ID}}\t{{.Image}}\t{{.Names}}\t{{.Status}}"
+Or only show container IDs:
+
+bash
+Copy code
+docker ps -a --format "{{.ID}}"
