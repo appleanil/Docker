@@ -225,6 +225,41 @@ docker system df
 ----------------
 
 
+docker images and container backup
+==================================
+
+1. docker images
+----------------
+
+docker save -o <filename.tar> <images-name>
+
+ex:- docker save -o anilsonar-image sonarqube/nexus/tomcat/anything
+
+docker load -i <filename.tar>
+
+later we can tag that image by docker tag filename.tar anilsonar:0.0.1    this is too much process
+
+we can use these commands also export and import
+
+docker export -o <file-name.tar> <sonarimage-name>
+
+docker export -o anilimage_bkp.tar sonarqubeimage
+
+docker import -o <file-name.tar> <sonarimage-name>:0.0.1
+
+docker import -o anilimage_bkp.tar sonarqubeimage:0.0.1
+
+
+2.docker container
+------------------
+
+docker export -o <file-name.tar> <sonarcon-name>
+
+docker import sonar_backup.tar my-sonarqube:0.0.1 or restored
+
+
+
+
 How to move image from one server to another server?
 ----------------------------------------------------
 
