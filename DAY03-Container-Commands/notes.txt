@@ -45,19 +45,6 @@ docker rm -f <cid> <cid> ......
 docker rm -f $(docker ps -q) --> It will remove all running conainers
 
 docker rm -f $(docker ps -aq) --> It will remove all conainers
-
-
-Correct ways to filter by container:
-a) Filter by container name:
-docker ps -a --filter "name=my-container" -q
-
-b) Filter by container ID (partial ID works too):
-docker ps -a --filter "id=91b160bab7ea" -q
-
-c) Filter by status:
-docker ps -a --filter "status=exited" -q
-
-docker ps -a --filter "status=running" -q------------>running container ID
  
 
 
