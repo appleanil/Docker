@@ -1,7 +1,8 @@
 Dockerfile
 ==========
 
---> A Dockerfile is a text document containing a series of instructions on how to build a Docker image. It defines everything needed to create a containerized application, including the base image, the application code, and any necessary dependencies.
+--> A Dockerfile is a text document containing a series of instructions on how to build a Docker image. It defines everything needed to create 
+a containerized application, including the base image, the application code, and any necessary dependencies.
 
 --> Docker runs these instructions from top to bottom 
 
