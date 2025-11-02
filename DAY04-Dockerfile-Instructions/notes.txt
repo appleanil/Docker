@@ -173,6 +173,28 @@ EX:
 NOTE: please use shell form for ONLY CMD instructions, so we can replace variables easily.
 
 
+         ----(OR)-----
+
+---> RUN instruction will be executed while building the image.
+
+---> CMD instruction is used to provide default commands or scripts that run when the container starts.
+
+---> ENTRYPOINT instruction is used to specify the main command or script that will always run when the container starts.
+
+
+         ------(OR)------
+
+🔍 Quick Note
+--------------
+
+RUN → during image build.
+
+CMD → at container start, can be overridden.
+
+ENTRYPOINT → at container start, is not overridden easily.
+
+
+
 
 IQ] what is shell form and executable form in docker?    ----(DOUBT UNDI)----
 
@@ -223,108 +245,5 @@ IQ] can you have a more than one CMD in a Dockerfile?
 
 
 
-8. ENTRYPOINT
+8. ENTRYPOINT----This is discuss and continue in DAY-06 class plz check their
 -------------
-
---> RUN instruction will be executed while building the image.
---> CMD instruction used to execute a commands/ scripts etc.
---> ENTRYPOINT instruction used to execute a commands/ scripts etc.
-
-EX: ENTRYPOINT java -jar app.jar  --> shell form
-
-    ENTRYPOINT ["java", "-jar", "app.jar"]--> executable form
-
-
-         ----(OR)-----
-
----> RUN instruction will be executed while building the image.
-
----> CMD instruction is used to provide default commands or scripts that run when the container starts.
-
----> ENTRYPOINT instruction is used to specify the main command or script that will always run when the container starts.
-
-
-         ------(OR)------
-
-🔍 Quick Note
---------------
-
-RUN → during image build.
-
-CMD → at container start, can be overridden.
-
-ENTRYPOINT → at container start, is not overridden easily.
-
-
-
-IQ] what is the difference between CMD and ENTRYPOINT?
-ANS:
-
-  --> CMD instructions are overriden while creating a container, But ENTRYPOINT instructions can't be overrriden while creating a container.
-  --> Both the instructions are used to start our container.
-
-IQ] can we keep both CMD and ENTRYPOINT instructions in a Dockerfile?
-
-Ans: Yes, But CMD instructions will not be executed if both are present, CMD instructions will be passed as an argument to the ENTRYPOINT.
-
-  EX: CMD ls
-      ENTRYPOINT ["echo", "Hello"]
-
-    --> It will be executed as below:
-       
-        /bin/echo Hello ls
-
-       output: Hello ls
-
-scenario: Our requirement always we have to execute sh catalina.sh, But argument by default it has to execute "start"
-
-       Ex: CMD start
-           ENTRYPOINT ["sh","catalina.sh"]
-
-      /bin/sh catlina.sh start
-
-
-CMD pwd
-ENTRYPOINT ["echo","Hello"]
-
-   /bin/echo Hello pwd
-
-
-
-IQ] what is the difference between COPY and docker cp?
-
-IQ] what is the difference between RUN and docker run?
-
-
-===============================================================================================
-
-
-
-Sample Docker File 1
----------------------
-
-FROM debian:12.0
-MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
-LABEL author="kkfunda"
-LABEL email="kkeducationblr@gmail.com"
-RUN echo "welcome to kkkfunda"
-RUN apt update -y
-RUN apt install git wget tree -y
-RUN mkdir -p /opt/app
-RUN echo "welcome to kk devops"
-
-docker build -t firstimage .
-
-
-IQ] My dockerfile contains more layers ? How to reduse it ?
-
-Ans: you can use && operator to merge all RUN instruction.
-
-
-IQ] what is docker build cahce?
-
-
-IQ] what if we delete all the images and again build the docker file? what happens?
-
-
-Ans:  
