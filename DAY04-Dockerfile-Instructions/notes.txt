@@ -191,6 +191,8 @@ ubuntu@ip-172-31-12-23:~/dockerfiles$ docker run -d -p 8080:9000 --name sonarcon
 Thu Oct 23 14:26:26 UTC 2025
 ubuntu@ip-172-31-12-23:~/dockerfiles$
 
+5. If u want u show the container layer then "docker inspect <container-id>"
+
 
 
 
