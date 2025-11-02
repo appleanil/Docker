@@ -150,7 +150,9 @@ if u not mention CMD echo "Hello java", it will take default conatinerID will sh
 
 * here im not given container name(--name sonarcon) but it will take default like busy_joliot
 
-* and if u observe here in COMMAND col echo"hello java " is their or else it will display while docker run -d -p 8080:8080 --name sonarcon sonaqube then will       display down hello java
+* and if u observe here in COMMAND col echo"hello java " is their or else it will display while docker run -d -p 8080:8080 --name sonarcon sonaqube then will
+
+display down hello java
 
 ubuntu@ip-172-31-12-23:~/dockerfiles$ docker run --name con2 two:latest
 ----------
