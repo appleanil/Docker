@@ -79,6 +79,8 @@ docker inspect --format '{{.State.OOMKilled}}' <container_id>
 
 docker inspect --format '{{.State.Running}}' <container_id>
 
+docker inspect --format "{{.State}} {{.Status}}" $(docker ps -aq)------------------------------------>ALL CONTAINERS STATUS WILL DISPLAY
+
 docker inspect 3369d1897ce3 --format '{{json .NetworkSettings}}' | grep -in "IPAddress"---------------> like this also we can practice
 
 
