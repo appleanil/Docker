@@ -56,7 +56,8 @@ Example: MAINTAINER KK EDUCATION <kkeducationblr@gmail.com
 
 LABEL <key>=<value> ...
 
-Purpose: Adds metadata to the image in the form of key-value pairs. This can include information about the version, description, or any custom information you want to include.
+Purpose: Adds metadata to the image in the form of key-value pairs. This can include information about the version, description, 
+or any custom information you want to include.
 
 
 Examples: 
@@ -76,7 +77,8 @@ NOTE: More than one LABEL will allow in image
 
 COPY <src> <dest>
 
-Purpose: Copies files or directories from the host machine to the image. The source path is relative to the build context (the directory containing the Dockerfile), and the destination path is inside the image.
+Purpose: Copies files or directories from the host machine to the image. The source path is relative to the build context (the directory containing the Dockerfile), 
+and the destination path is inside the image.
 
 
 Example: COPY target/mavan-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
