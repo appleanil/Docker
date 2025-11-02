@@ -138,16 +138,26 @@ NOTE: please use shell form for ONLY RUN instructions, so we can replace variabl
 ------
 --> CMD instruction used to execute a commands/ scripts etc.
 --> CMD instruction will be executed while creating a container. ****
+--> This instruction will be executed based on based image.
 
 for example-- docker run -d -p 8080:9000 --name sonarcon sonarqube:0.0.1
-from down it will show u Hello java(which u mentioned in Dockerfile CMD echo "Hello java") 
+
+from down it will show u Hello java(which u mentioned in Dockerfile CMD echo "Hello java" 
+
 if u not mention CMD echo "Hello java", it will take default conatinerID will show u
 
-docker run sonarimage:0.0.1--------->another method to run the container
+* docker run sonarimage:0.0.1--------->another method to run the container
 
-here im not given container name(--name sonarcon) but it take default like busy_joliot
+* here im not given container name(--name sonarcon) but it will take default like busy_joliot
 
-and if u observe in COMMAND col echo"hello java " is their
+* and if u observe here in COMMAND col echo"hello java " is their or else it will display while docker run -d -p 8080:8080 --name sonarcon sonaqube then will       display down hello java
+
+ubuntu@ip-172-31-12-23:~/dockerfiles$ docker run --name con2 two:latest
+----------
+hello java |
+----------
+ubuntu@ip-172-31-12-23:~/dockerfiles$
+
 
 ubuntu@ip-172-31-12-23:~/dockerfiles$ docker ps -a
 CONTAINER ID   IMAGE        COMMAND                  CREATED              STATUS                     PORTS   NAMES
@@ -157,7 +167,29 @@ ubuntu@ip-172-31-12-23:~/dockerfiles$
 
 
 
---> This instruction will be executed based on based image.
+1. When u build image for Dockerfile it will execute from top to bottom is shows u like this created container and removed container, then if u add another CMD instruction in last line then build the image it will shows 1 to 6 lines are using cache to build images and last line means 7 line it will create and removed the container.
+
+2. In Dockerfile if u add line 4 CMD echo "hello python" then build the image it will displays u 1 2 3 lines using cache and 4 5 6 7 lines created container and removed container. So that u need to be give CMD instruction in last line only
+
+3. In Dockerfile CMD echo "hello Python" then if u create a container it will not give u hello python bcz u need to be first build the images and then run container. And if u observe here CMD instruction will execute the recent instrcution from hello java to hello python.
+
+4.In Dockerfile having single line CMD echo "hello java" in last line then create a container like this 
+
+docker run -d -p 8080:9000 --name sonarcon sonarqube:0.0.1 date   by adding date instead of not only date we can give pwd, uname, ls -lrth and any linux commands
+
+it will shows u so that it will override
+
+ubuntu@ip-172-31-12-23:~/dockerfiles$ docker run -d -p 8080:9000 --name sonarcon sonarqube:0.0.1 date
+Thu Oct 23 14:26:26 UTC 2025
+ubuntu@ip-172-31-12-23:~/dockerfiles$
+
+
+
+
+
+
+
+
 
 EX:
    shell form
