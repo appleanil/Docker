@@ -141,7 +141,21 @@ NOTE: please use shell form for ONLY RUN instructions, so we can replace variabl
 
 for example-- docker run -d -p 8080:9000 --name sonarcon sonarqube:0.0.1
 from down it will show u Hello java(which u mentioned in Dockerfile CMD echo "Hello java") 
-if u not mention CMD echo "Hello java it will take default conatinerID will show u"
+if u not mention CMD echo "Hello java", it will take default conatinerID will show u
+
+docker run sonarimage:0.0.1--------->another method to run the container
+
+here im not given container name(--name sonarcon) but it take default like busy_joliot
+
+and if u observe in COMMAND col echo"hello java " is their
+
+ubuntu@ip-172-31-12-23:~/dockerfiles$ docker ps -a
+CONTAINER ID   IMAGE        COMMAND                  CREATED              STATUS                     PORTS   NAMES
+ef8473b114c1   two:latest   "/bin/sh -c 'echo \"h…"  15 seconds ago       Exited (0) 15 seconds ago          busy_joliot
+7503aabc7le7   two:latest   "/bin/sh -c 'echo \"h…"  About a minute ago   Exited (0) About a minute ago      con2
+ubuntu@ip-172-31-12-23:~/dockerfiles$
+
+
 
 --> This instruction will be executed based on based image.
 
