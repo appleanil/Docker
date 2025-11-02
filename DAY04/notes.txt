@@ -36,15 +36,6 @@ Example: FROM ubuntu:20.04
 
 
 
-
-
-
-
-
-
-
-
-
 2. Maintainer (Optional)
 ------------------------
 
@@ -55,18 +46,7 @@ MAINTAINER <name> <email>
 --> This instruction is now deprecated in favor of using LABEL, but it's still sometimes used in older Dockerfiles.
 
 
-Example: MAINTAINER KK EDUCATION <kkeducationblr@gmail.com>
-
-
-
-
-
-
-
-
-
-
-
+Example: MAINTAINER KK EDUCATION <kkeducationblr@gmail.com
 
 
 
@@ -91,13 +71,6 @@ NOTE: More than one LABEL will allow in image
 
 
 
-
-
-
-
-
-
-
 4. Copy Files
 -------------
 
@@ -115,13 +88,6 @@ Example: COPY target/mavan-web-application.war /usr/local/tomcat/webapps/maven-w
 
 
 
-
-
-
-
-
-
-
 5. Add Files
 ------------
 
@@ -133,16 +99,6 @@ Purpose: Similar to COPY, but with additional features like handling remote URLs
 Example: ADD https://example.com/file.tar.gz /app/
 
          ADD abc.tar /opt/    -> untar 
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -178,17 +134,10 @@ NOTE: please use shell form for RUN instructions, so we can replace variables ea
 
 
 
-
-
-
-
-
-
-
 7. CMD
 ------
 --> CMD instruction used to execute a commands/ scripts etc.
---> CMD instruction will be exuecuted while creating a container. ****
+--> CMD instruction will be executed while creating a container. ****
 --> This instruction will be executed based on based image.
 
 EX:
@@ -201,13 +150,6 @@ EX:
    ---------------
    CMD ["sh", "app.sh"]
    CMD ["java", "-jar", "abc.jar"]
-
-
-
-
-
-
-
 
 
 
@@ -238,19 +180,13 @@ NOTE: when you are using CMD and ENTRYPOINT executable form is preferable.
 
 
 
-
-
-
-
-
-
-
 IQ] what is the difference between RUN and CMD?
 
 ANS:
   --> RUN instruction will be exuecuted while creating an image.
-  --> CMD instruction will be exuecuted while creating a container.
-  --> we have more than one RUN instruction in a Dockerfile. All the RUN instructions will be executed, while   creating an image in the defined order (top to bottom).
+  --> CMD instruction will be executed while creating a container.
+  --> we have more than one RUN instruction in a Dockerfile. All the RUN instructions will be executed, while creating an image in the defined order 
+         (top to bottom).
 
 RUN sh abc.sh
 RUN echo "kkfunda"
@@ -265,18 +201,11 @@ IQ] can you have a more than one CMD in a Dockerfile?
 
 
 
-
-
-
-
-
-
-
 8. ENTRYPOINT
 -------------
 
 --> CMD instruction used to execute a commands/ scripts etc.
---> RUN instruction will be exuecuted while creating a container.
+--> RUN instruction will be executed while creating a container.
 -->  ENTRYPOINT instruction used to execute a commands/ scripts etc.
 
 EX: ENTRYPOINT java -jar app.jar  --> shell form
@@ -324,11 +253,6 @@ IQ] what is the difference between RUN and docker run?
 
 
 ===============================================================================================
-
-
-
-
-
 
 
 
