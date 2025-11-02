@@ -112,22 +112,6 @@ Ans:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 IQ] what is docker build cache?
 
 docker build -t firstimage .
