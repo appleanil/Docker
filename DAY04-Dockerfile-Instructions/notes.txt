@@ -151,15 +151,11 @@ lo run avthundi
 ---> status check cheyali ante appudu use this command ----docker inspect <container-name or ID> --format '{{.Config.Cmd}}'--- it help us to show u kinda 
 hello java ani vasthudni
 
-***
+****
 
 
 
 CMD echo "Hello java"
-
-for example:-- docker run -d -p 8080:9000 --name sonarcon sonarqube:0.0.1
-
-from down it will show u Hello java (which u mentioned in Dockerfile CMD echo "Hello java")
 
 if u not mention CMD echo "Hello java", it will take default conatinerID will show u
 
@@ -167,9 +163,7 @@ if u not mention CMD echo "Hello java", it will take default conatinerID will sh
 
 * Here im not given container name(--name sonarcon) but it will take default like busy_joliot
 
-* And if u observe here in COMMAND col echo"hello java " is their or else it will display while docker run -d -p 8080:8080 --name sonarcon sonaqube then will
-
- display down hello java
+* And if u observe here in COMMAND col echo"hello java " is their 
 
 ubuntu@ip-172-31-12-23:~/dockerfiles$ docker run --name con2 two:latest
 ----------
@@ -202,9 +196,16 @@ docker run -d -p 8080:9000 --name sonarcon sonarqube:0.0.1 date   by adding date
 
 it will shows u so that it will override
 
-ubuntu@ip-172-31-12-23:~/dockerfiles$ docker run -d -p 8080:9000 --name sonarcon sonarqube:0.0.1 date
+ubuntu@ip-172-31-12-23:~/dockerfiles$ docker run sonarqube date
 Thu Oct 23 14:26:26 UTC 2025
 ubuntu@ip-172-31-12-23:~/dockerfiles$
+
+ubuntu@ip-172-31-35-60:~$ docker run -d -p 80:80 --name onecon image date
+00556ed34b5e61faf4749a393db389f1e5a73f85a57536b9e87ef441dfdcacac
+ubuntu@ip-172-31-35-60:~$ docker inspect onecon --format '{{.Config.Cmd}}'
+[date]
+ubuntu@ip-172-31-35-60:~$
+
 
 5. If u want u show the container layer then "docker inspect <container-id>"
 
