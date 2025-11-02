@@ -44,16 +44,7 @@ ENTRYPOINT ["echo","Hello"]
    /bin/echo Hello pwd
 
 
-
-IQ] what is the difference between COPY and docker cp?
-
-IQ] what is the difference between RUN and docker run?
-
-
 ===============================================================================================
-
-
-
 
 
 
@@ -76,11 +67,40 @@ docker build -t firstimage .
 
 
 IQ] My dockerfile contains more layers ? How to reduse it ?
+-----------------------------------------------------------
 
 Ans: you can use && operator to merge all RUN instruction.
 
+FROM debian:12.0
+MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
+LABEL author="kkfunda"
+LABEL email="kkeducationblr@gmail.com"
+RUN echo "welcome to kkkfunda" && apt update -y && apt install git wget tree -y
+RUN mkdir -p /opt/app &&  echo "welcome to kk devops"
 
-IQ] what is docker build cahce?
+docker build -t firstimage .
+
+
+if u want take next line incudes && then use "\" back shash
+-----------------------------------------------------------
+
+FROM debian:12.0
+MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
+LABEL author="kkfunda" \
+      email="kkeducationblr@gmail.com"
+
+RUN echo "welcome to kkkfunda" && \
+    apt update -y && \
+    apt install git wget tree -y
+
+RUN mkdir -p /opt/app && \
+    echo "welcome to kk devops"
+
+docker build -t firstimage .
+
+
+
+IQ] what is docker build cache?
 
 
 IQ] what if we delete all the images and again build the docker file? what happens?
