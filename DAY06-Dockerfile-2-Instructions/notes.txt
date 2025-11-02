@@ -4,7 +4,7 @@
 
 --> CMD instruction used to execute a commands/ scripts etc.
 --> RUN instruction will be exuecuted while creating an image.
--->  ENTRYPOINT instruction used to execute a commands/ scripts etc.
+--> ENTRYPOINT instruction used to execute a commands/ scripts etc.
 
 EX: ENTRYPOINT java -jar app.jar  --> shell form
 
