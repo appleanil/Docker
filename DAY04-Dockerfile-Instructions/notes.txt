@@ -194,14 +194,8 @@ ubuntu@ip-172-31-12-23:~/dockerfiles$
 5. If u want u show the container layer then "docker inspect <container-id>"
 
 
-
-
-
-
-
-
-
-EX:
+For CMD example--
+=================
    shell form
    ----------
    CMD sh app.sh
@@ -288,4 +282,4 @@ IQ] can you have a more than one CMD in a Dockerfile?
 
 
 8. ENTRYPOINT----This is discuss and continue in DAY-06 class plz check their
--------------
+----------------------------------------------------------------------------
