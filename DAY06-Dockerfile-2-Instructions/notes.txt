@@ -294,7 +294,7 @@ ENTRYPOINT ["echo","Welcome"]
 9. ARG instruction
 -------------------
 
--->Using the ARG we can define arguments for Dockerfile. we can use these in another instruction.
+--> Using the ARG we can define arguments for Dockerfile. we can use these in another instruction.
 
 --> you can define multiple arguments in a Dockerfile
 
@@ -302,7 +302,11 @@ ENTRYPOINT ["echo","Welcome"]
 
 --> ARG values are not available after building an image, i.e Running container won't access the ARG values.
 
+--> Dockerfile is the default file in the server, if we change the name of the file or create new file in the name of anildockerfile then use command
 
+docker build -t <image-name> --build-arg baseImageTag=0.0.1 -f --anildockerfile .
+
+here baseImageTag is the function()
 
 
 
@@ -380,11 +384,6 @@ RUN echo "welcome to kk devops"
 
 
 
-
-
-
-
-
 docker build -t imageone .
 
 docker inspect imageone --> you will the env variables
@@ -424,7 +423,7 @@ COPY abc.txt abc.txt
 
 
 12. USER
--------
+--------
 
 --> USER is used to set user for the container or image
 
@@ -444,17 +443,7 @@ RUN echo "devops"
 
 
 
-
-
-
 COPY abc.py /opt/abc.py [or] RUN cp abc.py /opt/abc.py
-
-
-
-
-
-
-
 
 
 ================================================
