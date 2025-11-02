@@ -138,6 +138,11 @@ NOTE: please use shell form for ONLY RUN instructions, so we can replace variabl
 ------
 --> CMD instruction used to execute a commands/ scripts etc.
 --> CMD instruction will be executed while creating a container. ****
+
+for example-- docker run -d -p 8080:9000 --name sonarcon sonarqube:0.0.1
+from down it will show u Hello java(which u mentioned in Dockerfile CMD echo "Hello java") 
+if u not mention CMD echo "Hello java it will take default conatinerID will show u"
+
 --> This instruction will be executed based on based image.
 
 EX:
