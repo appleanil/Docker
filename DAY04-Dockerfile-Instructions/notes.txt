@@ -167,11 +167,15 @@ ubuntu@ip-172-31-12-23:~/dockerfiles$
 
 
 
-1. When u build image for Dockerfile it will execute from top to bottom is shows u like this created container and removed container, then if u add another CMD instruction in last line then build the image it will shows 1 to 6 lines are using cache to build images and last line means 7 line it will create and removed the container.
+1. When u build image for Dockerfile it will execute from top to bottom is shows u like this created container and removed container, then if u add another 
+CMD instruction in last line then build the image it will shows 1 to 6 lines are using cache to build images and last line means 7 line it will create and
+removed the container.
 
-2. In Dockerfile if u add line 4 CMD echo "hello python" then build the image it will displays u 1 2 3 lines using cache and 4 5 6 7 lines created container and removed container. So that u need to be give CMD instruction in last line only
+2. In Dockerfile if u add line 4 CMD echo "hello python" then build the image it will displays u 1 2 3 lines using cache and 4 5 6 7 lines created container 
+and removed container. So that u need to be give CMD instruction in last line only
 
-3. In Dockerfile CMD echo "hello Python" then if u create a container it will not give u hello python bcz u need to be first build the images and then run container. And if u observe here CMD instruction will execute the recent instrcution from hello java to hello python.
+3. In Dockerfile CMD echo "hello Python" then if u create a container it will not give u hello python bcz u need to be first build the images and then 
+run container. And if u observe here CMD instruction will execute the recent instrcution from hello java to hello python.
 
 4.In Dockerfile having single line CMD echo "hello java" in last line then create a container like this 
 
