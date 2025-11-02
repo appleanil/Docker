@@ -143,12 +143,12 @@ NOTE: please use shell form for ONLY RUN instructions, so we can replace variabl
 
 ****
 
---->yappudu ithy manam just docker run onecon ani container create cheystamo appudu matharame kinda hello java ani vasthundi
+---> yappudu ithy manam just docker run onecon ani container create cheystamo appudu matharame kinda hello java ani vasthundi
 
---->but docker run -d -p 80:80 --name ubuntucon ubuntuimage ani container create cheystamo appudu matharam hello java radu bcz -d means detached mode 
+---> but docker run -d -p 80:80 --name ubuntucon ubuntuimage ani container create cheystamo appudu matharam hello java radu bcz -d means detached mode 
 lo run avthundi
 
---->status check cheyali ante appudu use this command ----docker inspect <container-name or ID> --format '{{.Config.Cmd}}'--- it help us to show u kinda 
+---> status check cheyali ante appudu use this command ----docker inspect <container-name or ID> --format '{{.Config.Cmd}}'--- it help us to show u kinda 
 hello java ani vasthudni
 
 ***
