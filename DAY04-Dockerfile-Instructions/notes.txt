@@ -144,17 +144,17 @@ NOTE: please use shell form for ONLY RUN instructions, so we can replace variabl
 
 for example-- docker run -d -p 8080:9000 --name sonarcon sonarqube:0.0.1
 
-from down it will show u Hello java(which u mentioned in Dockerfile CMD echo "Hello java" 
+from down it will show u Hello java (which u mentioned in Dockerfile CMD echo "Hello java")
 
 if u not mention CMD echo "Hello java", it will take default conatinerID will show u
 
 * docker run sonarimage:0.0.1--------->another method to run the container
 
-* here im not given container name(--name sonarcon) but it will take default like busy_joliot
+* Here im not given container name(--name sonarcon) but it will take default like busy_joliot
 
-* and if u observe here in COMMAND col echo"hello java " is their or else it will display while docker run -d -p 8080:8080 --name sonarcon sonaqube then will
+* And if u observe here in COMMAND col echo"hello java " is their or else it will display while docker run -d -p 8080:8080 --name sonarcon sonaqube then will
 
-display down hello java
+ display down hello java
 
 ubuntu@ip-172-31-12-23:~/dockerfiles$ docker run --name con2 two:latest
 ----------
