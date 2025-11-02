@@ -105,11 +105,11 @@ Example: ADD https://example.com/file.tar.gz /app/
 6. RUN 
 ------
 --> RUN instruction used to execute a commands/ scripts etc.
---> RUN instruction will be exuecuted while creating an image. ************
+--> RUN instruction will be executed while creating an image. ************
 --> This instruction will be executed based on based image.
 --> It can be executed in a two ways 1. shell form and 2. executable form.
 
-use cases: 1. cretaing a directory
+use cases: 1. creating a directory
            2. execute a software
            3. unzip any zip file etc..
 EX:
@@ -129,7 +129,7 @@ EX:
    RUN ["/bin/sh", "setup.sh"]
    RUN ["useradd","kkfunda"]
 
-NOTE: please use shell form for RUN instructions, so we can replace variables easily.
+NOTE: please use shell form for ONLY RUN instructions, so we can replace variables easily.
 
 
 
@@ -151,9 +151,11 @@ EX:
    CMD ["sh", "app.sh"]
    CMD ["java", "-jar", "abc.jar"]
 
+NOTE: please use shell form for ONLY CMD instructions, so we can replace variables easily.
 
 
-IQ] what is shell form and executable form in docker?
+
+IQ] what is shell form and executable form in docker?    ----(DOUBT UNDI)----
 
 ANS:  RUN, CMD, ENTRYPOINT instructions can be defined in a shell form or executable form.
 
@@ -183,7 +185,7 @@ NOTE: when you are using CMD and ENTRYPOINT executable form is preferable.
 IQ] what is the difference between RUN and CMD?
 
 ANS:
-  --> RUN instruction will be exuecuted while creating an image.
+  --> RUN instruction will be executed while creating an image.
   --> CMD instruction will be executed while creating a container.
   --> we have more than one RUN instruction in a Dockerfile. All the RUN instructions will be executed, while creating an image in the defined order 
          (top to bottom).
@@ -197,6 +199,7 @@ CMD echo "three"
 
 IQ] can you have a more than one CMD in a Dockerfile?
  Ans: Yes you have, But only the last one/ recent one in the order will be executed while creating a container.
+      here recent means three
 
 
 
@@ -204,13 +207,35 @@ IQ] can you have a more than one CMD in a Dockerfile?
 8. ENTRYPOINT
 -------------
 
+--> RUN instruction will be executed while building the image.
 --> CMD instruction used to execute a commands/ scripts etc.
---> RUN instruction will be executed while creating a container.
--->  ENTRYPOINT instruction used to execute a commands/ scripts etc.
+--> ENTRYPOINT instruction used to execute a commands/ scripts etc.
 
 EX: ENTRYPOINT java -jar app.jar  --> shell form
 
     ENTRYPOINT ["java", "-jar", "app.jar"]--> executable form
+
+
+         ----(OR)-----
+
+---> RUN instruction will be executed while building the image.
+
+---> CMD instruction is used to provide default commands or scripts that run when the container starts.
+
+---> ENTRYPOINT instruction is used to specify the main command or script that will always run when the container starts.
+
+
+         ------(OR)------
+
+🔍 Quick Note
+--------------
+
+RUN → during image build.
+
+CMD → at container start, can be overridden.
+
+ENTRYPOINT → at container start, is not overridden easily.
+
 
 
 IQ] what is the difference between CMD and ENTRYPOINT?
