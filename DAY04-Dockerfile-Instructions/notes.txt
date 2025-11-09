@@ -1,24 +1,25 @@
 Dockerfile - Instructions
 =========================
 
-| No. | **Command**     | **Purpose (Short Explanation)**                        | **Example**                                                             |   |         |
-| --- | --------------- | ------------------------------------------------------ | ----------------------------------------------------------------------- | - | ------- |
-| 1.  | **FROM**        | Sets the base image for the Docker image               | `FROM ubuntu:20.04`                                                     |   |         |
-| 2.  | **COPY**        | Copies files/folders from local to container           | `COPY app.py /usr/src/app/`                                             |   |         |
-| 3.  | **ADD**         | Copies files, supports URLs & auto-extracts archives   | `ADD https://example.com/file.tar.gz /tmp/`                             |   |         |
-| 4.  | **RUN**         | Executes commands during image build                   | `RUN apt-get update && apt-get install -y python3`                      |   |         |
-| 5.  | **CMD**         | Sets the default command when container starts         | `CMD ["python3", "app.py"]`                                             |   |         |
-| 6.  | **ENTRYPOINT**  | Defines the main command that always runs in container | `ENTRYPOINT ["python3"]`                                                |   |         |
-| 7.  | **WORKDIR**     | Sets working directory inside the container            | `WORKDIR /usr/src/app`                                                  |   |         |
-| 8.  | **ENV**         | Sets environment variables                             | `ENV APP_ENV=production`                                                |   |         |
-| 9.  | **ARG**         | Defines build-time variables                           | `ARG VERSION=1.0`                                                       |   |         |
-| 10. | **EXPOSE**      | Declares the port container listens on                 | `EXPOSE 8080`                                                           |   |         |
-| 11. | **VOLUME**      | Creates mount point for persistent data                | `VOLUME ["/data"]`                                                      |   |         |
-| 12. | **USER**        | Sets user to run processes inside container            | `USER ubuntu`                                                           |   |         |
-| 13. | **LABEL**       | Adds metadata like author or version                   | `LABEL maintainer="anil@example.com"`                                   |   |         |
-| 14. | **HEALTHCHECK** | Defines command to check container’s health            | `HEALTHCHECK CMD curl -f [http://localhost:8080](http://localhost:8080) |   | exit 1` |
-| 15. | **ONBUILD**     | Triggers command when used as base for another image   | `ONBUILD COPY . /app`                                                   |   |         |
-| 16. | **SHELL**       | Changes default shell for commands                     | `SHELL ["bash", "-c"]`                                                  |   |         |
+| No. | Command     | Purpose (Short Explanation)                            | Example                                                                          |
+| --- | ----------- | ------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| 1.  | FROM        | Sets the base image for the Docker image               | FROM ubuntu:20.04                                                                |
+| 2.  | COPY        | Copies files/folders from local to container           | COPY app.py /usr/src/app/                                                        |
+| 3.  | ADD         | Copies files, supports URLs & auto-extracts archives   | ADD [https://example.com/file.tar.gz](https://example.com/file.tar.gz) /tmp/     |
+| 4.  | RUN         | Executes commands during image build                   | RUN apt-get update && apt-get install -y python3                                 |
+| 5.  | CMD         | Sets the default command when container starts         | CMD ["python3", "app.py"]                                                        |
+| 6.  | ENTRYPOINT  | Defines the main command that always runs in container | ENTRYPOINT ["python3"]                                                           |
+| 7.  | WORKDIR     | Sets working directory inside the container            | WORKDIR /usr/src/app                                                             |
+| 8.  | ENV         | Sets environment variables                             | ENV APP_ENV=production                                                           |
+| 9.  | ARG         | Defines build-time variables                           | ARG VERSION=1.0                                                                  |
+| 10. | EXPOSE      | Declares the port container listens on                 | EXPOSE 8080                                                                      |
+| 11. | VOLUME      | Creates mount point for persistent data                | VOLUME ["/data"]                                                                 |
+| 12. | USER        | Sets user to run processes inside container            | USER ubuntu                                                                      |
+| 13. | LABEL       | Adds metadata like author or version                   | LABEL maintainer="[anil@example.com](mailto:anil@example.com)"                   |
+| 14. | HEALTHCHECK | Defines command to check container’s health            | HEALTHCHECK CMD curl -f [http://localhost:8080](http://localhost:8080) || exit 1 |
+| 15. | ONBUILD     | Triggers command when used as base for another image   | ONBUILD COPY . /app                                                              |
+| 16. | SHELL       | Changes default shell for commands                     | SHELL ["bash", "-c"]                                                             |
+
 
 
 
