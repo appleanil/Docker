@@ -1,3 +1,28 @@
+Dockerfile - Instructions
+=========================
+
+1. FROM  
+2. COPY  
+3. ADD  
+4. RUN  
+5. CMD  
+6. ENTRYPOINT  
+7. WORKDIR  
+8. ENV  
+9. ARG  
+10. EXPOSE  
+11. VOLUME  
+12. USER  
+13. LABEL  
+14. HEALTHCHECK  
+15. ONBUILD  
+16. SHELL
+
+
+
+
+
+
 Dockerfile
 ==========
 
