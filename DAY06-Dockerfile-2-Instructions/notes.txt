@@ -98,6 +98,8 @@ RUN mkdir -p /opt/app && \
 
 docker build -t firstimage .
 
+to see layers of docker images file----> docker history <imageName or image-ID>
+
 
 
 IQ] what is docker build cache?
