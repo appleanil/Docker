@@ -124,6 +124,8 @@ TAG NAME IN LINUX-SERVER
 
 1. docker tag anildocker11/maven-anil:1.0.0  ----------------> give tag name
 
+docker tag tomcat:9.0.100 anil:0.0.0   
+
 ================================================================================================================================================
 ***  DOCKER IMAGES LO TOMCAT AND MAVEN UNTE APPUDU TOMCAT KI MANA NAME(anil-tomcat) AND VERSION(0.0.0) THO TAG CHEYVACHU THEN PUSH AND PULL  ***
 ================================================================================================================================================
@@ -307,8 +309,8 @@ docker system df
 docker images and container backup
 ==================================
 
-1. docker images
-----------------
+  1. docker images
+  ----------------
 
 docker save -o <filename.tar> <images-name>
 
@@ -318,16 +320,6 @@ docker load -i <filename.tar>
 
 later we can tag that image by docker tag filename.tar anilsonar:0.0.1    this is too much process
 
-we can use these commands also export and import
-
-docker export -o <file-name.tar> <sonarimage-name>
-
-docker export -o anilimage_bkp.tar sonarqubeimage
-
-docker import -o <file-name.tar> <sonarimage-name>:0.0.1
-
-docker import -o anilimage_bkp.tar sonarqubeimage:0.0.1
-
 
 2.docker container
 ------------------
@@ -336,17 +328,3 @@ docker export -o <file-name.tar> <sonarcon-name>
 
 docker import sonar_backup.tar my-sonarqube:0.0.1 or restored
 
-
-
-
-How to move image from one server to another server?
-----------------------------------------------------
-
-Approach 1: Use the nexus/Jfrog/DTR/ECR
-
-Approach 2:
-
-   docker save -o <filename>.tar <imageId>
-   scp filename.tar ubuntu@172.34.42.78:/home/ubuntu
-
-  docker load -i filename.tar
