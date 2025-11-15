@@ -1,3 +1,80 @@
+Class-2-Brief Explanation:
+==========================
+
+Step-01: Install Docker using 
+
+sudo apt install docker.io -y
+-----------------------------
+
+Step-02: Add user to Docker group using, then exit and reconnect the terminal
+
+sudo usermod -aG docker ubuntu
+------------------------------
+
+Step-03: Check Docker installation using docker images and docker ps -a
+
+Step-04: Install Git using sudo apt install git -y
+                           -----------------------
+
+Step-05: Clone the project using git clone <URL> and go inside the folder using cd maven-webapplication-project-kkfunda
+
+Step-06: Run the build using mvn clean package
+Build will fail because plugins are missing
+
+Step-07: Open the pom.xml file and insert the following inside <plugins>:
+
+<plugin>
+
+<groupId>org.apache.maven.plugins</groupId>
+
+<artifactId>maven-war-plugin</artifactId>
+
+<version>3.3.2</version>
+
+</plugin>
+
+Step-08: Run "mvn clean package" again
+Now the build will be successful and a WAR file will be created inside the target folder
+
+Step-09: Create a Dockerfile with the following content:
+FROM tomcat:9.0.100
+COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
+
+Step-10: Build the Docker image using the tag anildocker11/maven:0.0.2 with the command docker 
+
+build -t anildocker11/maven:0.0.2 .
+-----------------------------------
+
+Step-11: Check Docker image is created using docker images
+
+Step-12: Create a container using the image by running
+
+docker run -d -p 8081:8080 --name anilcontainer anildocker11/maven:0.0.2
+------------------------------------------------------------------------
+
+Step-13: Go to EC2 → Security Groups → Inbound rules → Add port number 8081 with protocol TCP and source 0.0.0.0/0
+
+Step-14: Copy the EC2 public IP and paste it in the browser with the context path /maven-web-application
+Example: http://<your-ec2-ip>:8081/maven-web-application
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 sudo usermod -aG ubuntu docker
 
 MAVEN PACKAGE OR BUILD BY DOCKER OR DOCKER IMAGES
@@ -56,7 +133,7 @@ TAG NAME IN LINUX-SERVER
 PUSH AND PULL TO DOCKER-HUB
 ===============================
 
-1. docker push anildocker11/maven-anil:1.0.0 .  ------------> push to docker-hub repo
+1. docker push anildocker11/maven-anil:1.0.0 . --------------> push to docker-hub repo
 
 2. docker pull anildocker11/maven-anil:1.0.0  ---------------> pull from docker-hub repo
 
@@ -141,6 +218,8 @@ docker images or docker image ls
 
 How to login docker hub
 -----------------------
+
+docker login --username anildocker11 docker.io----------> always use this only bcz username and password encrpit
 
 docker login -u username -p password
 
