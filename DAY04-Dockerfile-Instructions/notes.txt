@@ -79,7 +79,13 @@ FROM <image>:<tag>
 
 
 
-Example: FROM ubuntu:20.04
+Example:  FROM ubuntu:20.04
+          FROM sonatype/nexus3
+          FROM jenkins/jenkins
+          FROM sonarqube
+          FROM tomcat
+          FROM nginx
+
 
 
 
@@ -163,8 +169,8 @@ EX:
    ----------
    RUN mkdir -p /opt/app
    RUN tar -xvzf /opt/apache-tomcat.tar.gz
-   RUN useradd kkfunda
-   RUN apt-get update && apt-get install git wget -y
+   RUN useradd anil
+   RUN apt-get update && apt-get install tar zip wget -y
    RUN ./setup.sh
 
 
