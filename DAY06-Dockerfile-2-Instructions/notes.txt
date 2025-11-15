@@ -429,6 +429,9 @@ RUN echo "welcome to kk devops"
 COPY abc.txt abc.txt
 
 
+docker inspect imageone --> you will the env variables  very very imp to check
+
+
 12. USER
 --------
 
