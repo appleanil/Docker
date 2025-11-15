@@ -12,7 +12,13 @@ docker create -p 8080:8080 --name javawebapp kkeducation12345/java-web-app
 
 docker start javawebapp
 
-docker run -d -p 8080:8080 --name javawebapp1 kkeducation12345/java-web-app
+1. docker run -d -p 8080:8080 --name javawebapp1 kkeducation12345/java-web-app----> Internet ki expose cheystv ante aa command use cheyali
+
+2. docker run --name container1 imagename ----------------------------------------> give container name which image base cheysukoni container build avvali 
+
+3. docker run four ---------------------------------------------------------------> same name for image and container
+
+
 
 
 How to list the running containers?
