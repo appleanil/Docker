@@ -203,6 +203,27 @@ RUN echo "welcome to kk devops"
 
 CMD sh test.sh
 
+sample Dockerfile 6
+===================
+
+FROM debian:12.0
+MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
+
+LABEL author="Dhage"
+LABEL email="anilanilji09@gmail.com"
+
+RUN echo "welcome to world" && echo "Welcome to Prince Anil Kumar"
+
+# Correct package installation
+RUN apt update -y && apt install -y git wget tree iputils-ping
+
+# ENTRYPOINT = main program
+ENTRYPOINT ["ping"]
+
+# CMD = default arguments
+CMD ["google.com"]
+
+
 
 
 ===============================================================================
