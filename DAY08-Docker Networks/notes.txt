@@ -62,6 +62,16 @@ Step--3--Check connection between those two containers
 4. and take twocon IDAddress goto onecon ping <IPAddress>
 
 
+How many container in a Network ?
+--------------------------------
+
+docker network ls
+
+take network ID
+
+docker inpect <ID network>
+
+
 
 
 Docker Networks
