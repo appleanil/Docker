@@ -40,10 +40,10 @@ Step-09: Create a Dockerfile with the following content:
 FROM tomcat:9.0.100
 COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
 
-Step-10: Build the Docker image using the tag anildocker11/maven:0.0.2 with the command docker 
+Step-10: Build the Docker image using the tag anildocker11/maven:0.0.2 with the command 
 
-build -t anildocker11/maven:0.0.2 .
------------------------------------
+docker build -t anildocker11/maven:0.0.2 .
+-------------------------------------------
 
 Step-11: Check Docker image is created using docker images
 
