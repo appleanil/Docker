@@ -30,36 +30,19 @@ COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-applic
 RUN apt-get update -y && \
     apt-get install -y iputils-ping
 
-1. docker build -t one .
+ docker build -t one .
 
-2. docker run -d -p 8080:8080 --name onecon one
+Create a Network
+----------------
 
-3. docker run -d -p 8081:8080 --name twocon one
+docker network create jio
+docker network create airtel
+docker network create bsnl
 
-Step--2:-- Create a network
----------------------------
+1. docker run -d -p 8080:8080 --network jio --name onecon one
 
-1. docker network create jio
+2. docker run -d -p 8081:8080 --network jio --name twocon one
 
-list network  docker network ls
-
-2. connect those container to network
--------------------------------------
-
-1. docker network connect jio onecon
-
-2. docker network connect jio twocon
-
-Step--3--Check connection between those two containers
-------------------------------------------------------
-
-1. docker inspect onecon-----------------> take copy IPAddress
-
-2. docker exec -it twocon bash 
-
-3. ping paste <IPAddress>
-
-4. and take twocon IDAddress goto onecon ping <IPAddress>
 
 
 How many container in a Network ?
