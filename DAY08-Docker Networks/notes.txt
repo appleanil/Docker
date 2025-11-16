@@ -86,10 +86,13 @@ How IPs are allocating to container?
 ------------------------------------
 docker inspect <network-name>
 
-How to remove a unused networks?
---------------------------------
+How to remove a unused networks? Delete the network
+-----------------------------------------------------
 
 docker system prune or docker network prune  or docker network rm <nwtwork-name>
+
+docker network rm jio
+
 
 
 How to create a container in network?
