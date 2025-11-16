@@ -18,17 +18,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 Docker Networks
 ===============
 
@@ -177,38 +166,3 @@ Establishing connection between containers in different docker servers.
 
 
 ================================================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
