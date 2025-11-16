@@ -17,6 +17,52 @@
 
 
 
+Class brief Explaination
+========================
+
+Create small Dockerfile
+
+for practice Dockerfile networks
+--------------------------------
+
+FROM tomcat:9.0.100
+COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
+RUN apt-get update -y && \
+    apt-get install -y iputils-ping
+
+1. docker build -t one .
+
+2. docker run -d -p 8080:8080 --name onecon one
+
+3. docker run -d -p 8081:8080 --name twocon one
+
+Step--2:-- Create a network
+---------------------------
+
+1. docker create network jio
+
+list network  docker network ls
+
+2. connect those container to network
+-------------------------------------
+
+1. docker connect network jio onecon
+
+2. docker connnect network jio twocon
+
+Step--3--Check connection between those two containers
+------------------------------------------------------
+
+1. docker inspect onecon-----------------> take copy IPAddress
+
+2. docker exec -it twocon bash 
+
+3. ping paste <IPAddress>
+
+4. and take twocon IDAddress goto onecon ping <IPAddress>
+
+
+
 
 Docker Networks
 ===============
@@ -30,17 +76,6 @@ Docker Networks
      2. host
      3. none
 
-for practice Dockerfile networks
---------------------------------
-
-FROM tomcat:9.0.100
-
-# Copy WAR into Tomcat webapps
-COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
-
-# Install ping (optional)
-RUN apt-get update -y && \
-    apt-get install -y iputils-ping
 
 
 How to list a docker networks?
