@@ -39,16 +39,16 @@ RUN apt-get update -y && \
 Step--2:-- Create a network
 ---------------------------
 
-1. docker create network jio
+1. docker network create jio
 
 list network  docker network ls
 
 2. connect those container to network
 -------------------------------------
 
-1. docker connect network jio onecon
+1. docker network connect jio onecon
 
-2. docker connnect network jio twocon
+2. docker network connect jio twocon
 
 Step--3--Check connection between those two containers
 ------------------------------------------------------
