@@ -48,8 +48,7 @@ RUN apt install tar wget tree -y
 RUN mkdir -p /opt/app
 RUN echo "welcome to Prince Anil Kumar"
 WORKDIR /opt/app
-COPY app.sh /opt/app/
-ENV APP_ENV=production
+ENV APP_ENV=prod
 EXPOSE 8080
 CMD ["bash"]
 ENTRYPOINT ["bash"]
