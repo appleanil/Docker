@@ -37,21 +37,23 @@ Dockerfile - Instructions
 | 16  | SHELL        | Changes default shell for RUN commands                    | SHELL ["bash", "-c"]                                          |
 +-----+--------------+-----------------------------------------------------------+---------------------------------------------------------------+
 
-1. FROM debian:12.0
-2. MAINTAINER KKFUNDA <anilanilji09@gmail.com>
-3. LABEL author="AnilKumar"
-4. LABEL email="anilanilji09@gmail.com"
-5. RUN echo "welcome to World"
-6. RUN apt update -y
-7. RUN apt install tar wget tree -y
-8. RUN mkdir -p /opt/app
-9. RUN echo "welcome to Prince Anil Kumar"
-10. WORKDIR /opt/app
-11. COPY app.sh /opt/app/
-12. ENV APP_ENV=production
-13. EXPOSE 8080
-14 .CMD ["bash"]
-15. ENTRYPOINT ["bash"]
+
+FROM debian:12.0
+MAINTAINER KKFUNDA <anilanilji09@gmail.com>
+LABEL author="AnilKumar"
+LABEL email="anilanilji09@gmail.com"
+RUN echo "welcome to World"
+RUN apt update -y
+RUN apt install tar wget tree -y
+RUN mkdir -p /opt/app
+RUN echo "welcome to Prince Anil Kumar"
+WORKDIR /opt/app
+COPY app.sh /opt/app/
+ENV APP_ENV=production
+EXPOSE 8080
+CMD ["bash"]
+ENTRYPOINT ["bash"]
+
 
 
 
