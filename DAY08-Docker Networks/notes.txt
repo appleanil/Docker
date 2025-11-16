@@ -72,6 +72,24 @@ take network ID
 docker inpect <ID network>
 
 
+To list ONLY the container names attached to a network
+------------------------------------------------------
+
+docker inspect -f '{{range .Containers}}{{.Name}} {{end}}' jio
+
+fourcon threecon
+
+
+docker inspect -f '{{range .Containers}}{{.Name}} {{.IPv4Address}}{{println}}{{end}}' jio
+
+docker inspect -f '{{range .Containers}}{{println .Name .MacAddress .IPv4Address}}{{end}}' jio
+
+NAME        IP              MAC
+fourcon     172.18.0.3      e6:1d:ae:f1:06:57
+threecon    172.18.0.2      2a:6e:e3:30:ed:e9
+
+
+
 
 
 Docker Networks
