@@ -9,7 +9,7 @@
 --> Dockerfile 
 --> Docker best practices
 
---> docker networks
+--> docker networks-----------> THIS IS THE CLASS
 --> Docker ECR
 --> docker volumes
 --> docker compose
@@ -34,7 +34,6 @@ RUN apt-get update -y && \
 
 Create a Network
 ----------------
-
 docker network create jio
 docker network create airtel
 docker network create bsnl
@@ -43,6 +42,9 @@ docker network create bsnl
 
 2. docker run -d -p 8081:8080 --network jio --name twocon one
 
+docker exec -it onecon bash
+
+ping <IPAddress>      (or)     ping <>container_name      (or)      curl -v telnet://172.17.0.3:8080
 
 
 How many container in a Network ?
@@ -55,17 +57,49 @@ take network ID
 docker inpect <ID network>
 
 
+
+How to add that container to another network?
+---------------------------------------------
+
+for example : - onecon,twocon---bridge network (default network),             threecon, fourcon----jio network
+
+now im adding onecon to jio network --------------------> docker network connect jio onecon
+
+later u can check docker inspect jio 
+
+
+* How to disconnect the container from network?
+
+docker network disconnect  jio onecon
+
+docker inspect jio
+
+
+How to remove a unused networks? Delete the network
+-----------------------------------------------------
+
+docker system prune or  docker network prune  
+
+docker network rm <nwtwork-name>
+
+docker network rm jio
+
+
 To list ONLY the container names attached to a network
 ------------------------------------------------------
 
-docker inspect -f '{{range .Containers}}{{.Name}} {{end}}' jio
+* docker inspect -f '{{range .Containers}}{{.Name}} {{end}}' jio
 
 fourcon threecon
 
 
-docker inspect -f '{{range .Containers}}{{.Name}} {{.IPv4Address}}{{println}}{{end}}' jio
+* docker inspect -f '{{range .Containers}}{{.Name}} {{.IPv4Address}}{{println}}{{end}}' jio
 
-docker inspect -f '{{range .Containers}}{{println .Name .MacAddress .IPv4Address}}{{end}}' jio
+twocon 172.18.0.4/16
+fourcon 172.18.0.3/16
+threecon 172.18.0.2/16
+
+* docker inspect -f '{{range .Containers}}{{println .Name .MacAddress .IPv4Address}}{{end}}' jio
 
 NAME        IP              MAC
 fourcon     172.18.0.3      e6:1d:ae:f1:06:57
@@ -134,7 +168,7 @@ Ans: Incase of default bridge network the communication can happen through only 
 
 
 How to create a network in docker?
-----------------------------------------
+----------------------------------
 
 Syntax: docker network create -d <driver> <networkname>
 
@@ -145,12 +179,6 @@ How IPs are allocating to container?
 ------------------------------------
 docker inspect <network-name>
 
-How to remove a unused networks? Delete the network
------------------------------------------------------
-
-docker system prune or docker network prune  or docker network rm <nwtwork-name>
-
-docker network rm jio
 
 
 
@@ -172,19 +200,13 @@ ping mavenwebapp
 
 NOTE: same container might part of another networks also.
 
-How to add that container to another network?
+* How to add that container to another network?
 
 docker network connect  jionetwork javawebappbridge
 
 docker inspect javawebappbridge
 
----------------------------------
 
-How to disconnect the container from network?
-
-docker network disconnect  jionetwork javawebappbridge
-
-docker inspect javawebappbridge
 
 
 ===================================================================
