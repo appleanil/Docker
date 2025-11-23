@@ -117,9 +117,9 @@ docker network ls
 
 
 step 7: create a container
--------
+--------------------------
 
-docker run -d --name mongo --network bsnl -e MONGO_DB_HOSTNAME=mongo -e MONGO_DB_USERNAME=devdb -e MONGO_DB_PASSWORD=dev@123 take image-name
+docker run -d --name springwebappcon --network bsnl -e MONGO_DB_HOSTNAME=mongo -e MONGO_DB_USERNAME=devdb -e MONGO_DB_PASSWORD=dev@123 take image-name
 
 1.Variable                   Meaning                                  Provided by
 ---------------------------------------------------------------------------------
@@ -138,9 +138,9 @@ http://IP:8080
 NOTE: As of now we are not created the mongo db, so data will not be stored
 
 step 9: start the mongodb container
--------
+------------------------------------
 
-docker run -d --name mongo --network jionetwork -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo
+docker run -d --name mongo --network bsnl -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo:8.0.9-noble
 
 
 
@@ -250,14 +250,14 @@ step 2: Then create a mongo DB container
 -------
 
 
-docker run -d --name mongo -v /home/ubuntu/prasanthprojects/spring-boot-mongo-docker-kkfunda/backup:/data/db --network jionetwork -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo
+docker run -d --name mongo -v /home/ubuntu/prasanthprojects/spring-boot-mongo-docker-kkfunda/backup:/data/db --network jionetwork -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo:8.0.9-noble
 
 insert some data
 
 step 3: Recreate the mongo db container
 -------
 
-docker run -d --name mongo -v /home/ubuntu/spring-boot-mongo-docker-kkfunda/monga_bkp:/data/db --network jio -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo:8.0.9
+docker run -d --name mongo -v /home/ubuntu/spring-boot-mongo-docker-kkfunda/monga_bkp:/data/db --network jio -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo:8.0.9-noble
 
 
 Assignment: run the jenkins as a container and create a job check the volumes concept
@@ -305,7 +305,7 @@ How to create a conatiner with volumes?
 
 docker run -d --name springapp --network jionetwork -p 8080:8080 -e MONGO_DB_HOSTNAME=mongo -e MONGO_DB_USERNAME=devdb -e MONGO_DB_PASSWORD=dev@123 kkdevopsb4/springimage
 
-docker run -d --name mongo -v jiovolume:/data/db --network jionetwork -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo
+docker run -d --name mongo -v jiovolume:/data/db --network jionetwork -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo:8.0.9-noble
 
 
 How to inspect the volume?
