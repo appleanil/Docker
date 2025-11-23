@@ -26,7 +26,7 @@ What is Docker volume?
 
 2. volumes
   (i) local volumes
-  (ii) network volumes [NFS,EBS,S3]
+  (ii) network volumes [NFS,EBS,S3] DISCUSS IN AWS
 
 
 LAB
