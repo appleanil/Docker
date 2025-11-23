@@ -75,8 +75,6 @@ Example: http://<your-ec2-ip>:8081/maven-web-application
 
 
 
-sudo usermod -aG ubuntu docker
-
 MAVEN PACKAGE OR BUILD BY DOCKER OR DOCKER IMAGES
 =================================================
 
@@ -88,7 +86,7 @@ anildocker11(optional--->ivachu leda ivvakudadu)
 
 but maven-anil give crrt for better readabilty
 
-give version also
+10.10.9 give version also
 
 
 METHOD-2
@@ -146,12 +144,12 @@ HOW TO MOVE A DOCKER IMAGE FROM ONE SERVER TO ANOTHER SERVER?
 METHOD-1
 ---------
 
-PULL AND PUSH
+* PULL AND PUSH
 
 METHOD-2
 --------
 
-TAKEN BACKUP INTO NEXUS/JFROG/EC2
+* TAKEN BACKUP INTO NEXUS/JFROG/EC2
 
 METHOD-3
 --------
@@ -207,7 +205,7 @@ How to build docker image
 
 docker build -t <image> <buildContext>
 
-docker build -t kkeducation123456/java-web-app:1 .
+docker build -t anildocker11/maven:0.0.1 .
 docker build -t nexus.jio.com/java-web-app:1 .
 
 docker build -t customName kkeducation123456/java-web-app:1 .
@@ -261,7 +259,6 @@ How to delete image
 
 docker rmi <image_id/Image_name>
 
-
 How to delete multiple images?
 ------------------------------
 
@@ -309,8 +306,8 @@ docker system df
 docker images and container backup
 ==================================
 
-  1. docker images
-  ----------------
+1. docker images
+----------------
 
 docker save -o <filename.tar> <images-name>
 
