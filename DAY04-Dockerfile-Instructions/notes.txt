@@ -85,7 +85,6 @@ RUN echo "hello kk funda"
 1. Base Image
 -------------
 
-
 FROM <image>:<tag>
 
 --> Specifies the base image to use for the Docker image. 
@@ -106,7 +105,6 @@ Example:  FROM ubuntu:20.04
 
 2. Maintainer (Optional)
 ------------------------
-
 
 MAINTAINER <name> <email>
 
@@ -153,6 +151,7 @@ Example: COPY target/mavan-web-application.war /usr/local/tomcat/webapps/maven-w
          COPY . .
     
         COPY abc.tar /opt/
+
 
 
 5. Add Files
@@ -266,13 +265,13 @@ it will shows u so that it will override
 
 ubuntu@ip-172-31-12-23:~/dockerfiles$ docker run sonarqube date
 Thu Oct 23 14:26:26 UTC 2025
-ubuntu@ip-172-31-12-23:~/dockerfiles$
+
 
 ubuntu@ip-172-31-35-60:~$ docker run -d -p 80:80 --name onecon image date
 00556ed34b5e61faf4749a393db389f1e5a73f85a57536b9e87ef441dfdcacac
 ubuntu@ip-172-31-35-60:~$ docker inspect onecon --format '{{.Config.Cmd}}'
 [date]
-ubuntu@ip-172-31-35-60:~$
+
 
 
 5. If u want u show the container layer then "docker inspect <container-id>"
