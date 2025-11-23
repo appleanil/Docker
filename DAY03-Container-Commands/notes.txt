@@ -4,13 +4,21 @@ Container commands
 How to create a container?
 --------------------------
 
-docker create : It will create a container, But it will not start the container(process)
-
-docker run : It will create a container and it will start the container(process)
+---> docker create : It will create a container, But it will not start the container(process)
 
 docker create -p 8080:8080 --name javawebapp kkeducation12345/java-web-app
 
 docker start javawebapp
+
+docker create --name ubuntucontainer ubuntu
+
+docker ps -a
+
+docker start ubuntucontainer
+
+(IQ: what is the difference between docker create and run?)
+
+---> docker run : It will create a container and it will start the container(process)
 
 1. docker run -d -p 8080:8080 --name javawebapp1 kkeducation12345/java-web-app----> Internet ki expose cheystv ante aa command use cheyali
 
@@ -54,8 +62,6 @@ docker rm -f $(docker ps -aq) --> It will remove all conainers
  
 
 
-
-
 HOW TO PICK PARTICULAR COLUMN
 =============================
 
@@ -85,9 +91,9 @@ docker inspect --format '{{.State.OOMKilled}}' <container_id>
 
 docker inspect --format '{{.State.Running}}' <container_id>
 
-docker inspect --format "{{.State}} {{.Status}}" $(docker ps -aq)------------------------------------>ALL CONTAINERS STATUS WILL DISPLAY
+docker inspect --format "{{.State}} {{.Status}}" $(docker ps -aq)--------------------------------------> ALL CONTAINERS STATUS WILL DISPLAY
 
-docker inspect 3369d1897ce3 --format '{{json .NetworkSettings}}' | grep -in "IPAddress"---------------> like this also we can practice
+docker inspect 3369d1897ce3 --format '{{json .NetworkSettings}}' | grep -in "IPAddress"----------------> like this also we can practice
 
 
 
@@ -131,13 +137,10 @@ docker restart <cid/cname>
 
 
 
-IQ: what is the difference between docker create and run?
-
 IQ: What is port publish or port mapping in docker?
 
 
 IQ: What is the difference between docker stop and docker kill?
-
 
 docker stop: not force kill
 docker kill: force kill
@@ -157,17 +160,8 @@ How to delete only paused containers?
 -------------------------------------
 docker rm -f $(docker ps --filter status="paused")
 
-===================================================================
 
 
-docker run --name ubuntucontainer ubuntu
-
-docker ps -a
-
-docker start ubuntucontainer
-
-
-=====================================================================
 
 How to create a container in interative mode?
 ---------------------------------------------
@@ -195,14 +189,13 @@ docker exec -it <cid/name> /bin/bash
 execute commands on running container
 -------------------------------------
 
-docker exec 5a7b9937d4df ls 
+docker exec 5a7b9937d4df ls
 
-How to display whick process is running inside the container?
+
+How to display which process is running inside the container?
 -------------------------------------------------------------
 
 docker top <cid/cname>
-
-
 
 
 How to display resource(RAM,CPU) details?
@@ -229,10 +222,10 @@ How to copy files from system to continer and container to system?
 --------------------------------------------------------------------
 
 
-docker cp five:/usr/local/tomcat/logs/catalina.2025-05-17.log catalina.2025-05-17.log
+docker cp con-name:/usr/local/tomcat/logs/catalina.2025-05-17.log catalina.2025-05-17.log
 
 
-docker cp demo.txt javawebapp:/usr/local/tomcat/
+docker cp demo.txt con-name:/usr/local/tomcat/
 
 
 
@@ -255,8 +248,5 @@ what is docker commit?
 -----------------------
 
 docker commit <cid/cname> kkeducation12345/java-web-app:24
-
-
-       ***=================================================================================================================***
 
 
