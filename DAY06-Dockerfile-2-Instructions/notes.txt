@@ -6,9 +6,9 @@
 --> RUN instruction will be exuecuted while creating an image.
 --> ENTRYPOINT instruction used to execute a commands/ scripts etc.
 
-EX: ENTRYPOINT java -jar app.jar  --> shell form
+EX: ENTRYPOINT java -jar app.jar  ----------------> shell form
 
-    ENTRYPOINT ["java", "-jar", "app.jar"]--> executable form
+    ENTRYPOINT ["java", "-jar", "app.jar"]--------> executable form
 
 
 IQ] what is the difference between CMD and ENTRYPOINT?
@@ -75,7 +75,7 @@ FROM debian:12.0
 MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
 LABEL author="kkfunda"
 LABEL email="kkeducationblr@gmail.com"
-RUN echo "welcome to kkkfunda" && apt update -y && apt install git wget tree -y
+RUN echo "welcome to Anil Kumar" && apt update -y && apt install git wget tree -y
 RUN mkdir -p /opt/app &&  echo "welcome to kk devops"
 
 docker build -t firstimage .
@@ -101,8 +101,6 @@ docker build -t firstimage .
 to see layers of docker images file----> docker history <imageName or image-ID>
 
 
-
-IQ] what is docker build cache?
 
 
 IQ] what if we delete all the images and again build the docker file? what happens?
@@ -150,6 +148,7 @@ CMD ["date"]
  
  docker logs firstc1
 
+
 sample Docker file 3
 --------------------
 
@@ -183,8 +182,8 @@ RUN echo "welcome to kk devops"
 
 CMD sh test.sh
 
-docker build -t imagetwo .  --> No error while building an image
-docker run imagetwo  ---> sh: 0: cannot open test.sh: No such file
+docker build -t imagetwo .  ------> No error while build an image
+docker run imagetwo       --------> sh: 0: cannot open test.sh: No such file
 
 
 sample Docker file 5
@@ -333,6 +332,7 @@ EX: ARG branchName=development
 
 
 Example :
+---------
 
 ARG baseImageTag
 FROM debian:$baseImageTag
@@ -356,18 +356,17 @@ ARG baseImageTag=latest
 FROM debian:$baseImageTag
 
 
-==============================================================================
 
 
 10. ENV
-----------
+--------
 
---> ENV is used to set an environment variables, The are available for image and container.
+--> ENV is used to set an environment variables, They are available for image and container.
 
 EX:
  
-     ENV CATALINE_HOME /usr/local/tomcat
-     ENV JAVA_HOME /usr/bin/jdk8
+ENV CATALINE_HOME /usr/local/tomcat
+ENV JAVA_HOME /usr/bin/jdk8
 
 
 EX:
@@ -396,7 +395,6 @@ docker build -t imageone .
 docker inspect imageone --> you will the env variables
 
 
-===============================================================================
 
 
 11. WORKDIR
