@@ -120,6 +120,13 @@ How to remove all stopeed conatainers?
 
 docker container prune
 
+Removes all stopped containers.
+
+Interactively asks Are you sure? (unless you add -f / --force).
+
+You can add filters, e.g.:  docker container prune --force --filter "until=24h"
+
+
 docker rm -f $(docker ps --filter status="exited" -aq)   
 
 
@@ -158,8 +165,8 @@ docker unpause <cid/cname>
 
 How to delete only paused containers?
 -------------------------------------
-docker rm -f $(docker ps --filter status="paused")
 
+docker rm -f $(docker ps --filter status="paused")
 
 
 
@@ -203,13 +210,13 @@ How to display resource(RAM,CPU) details?
 
 docker stats <cid/cname>
 
-IQ: Is it possible to allocate cutom memory?
+IQ: Is it possible to allocate custom memory?
 
 Ans: Yes
 
-docker run --memory="512m" -d -p 8082:8080 --name javawebapp2 kkeducation12345/java-web-app:1
+docker run --memory="512m" -d -p 8082:8080 --name javawebapp2 anildocker11/java-web-app:1.0.0
 
-docker run --memory="64m" -d -p 8082:8080 --name javawebapp2 kkeducation12345/java-web-app:1  --> Here container will be killed.
+docker run --memory="64m" -d -p 8082:8080 --name javawebapp2 anildocker11/java-web-app:1  --> Here container will be killed.
 
 docker inspect <cid> --> OOMKilled
 
