@@ -1,4 +1,4 @@
-mango default port no: 27017
+mongo default port no: 27017
 
 in real time we are using this type of methos i mean in linux mkdir backup and attacted to volume y cannot choose NFS and ECR
 
@@ -6,6 +6,7 @@ Docker volumes
 ==============
 
 --> docker Networks are used for container communication, Docker volumes are used for storage.
+
 
 Before Docker volumes
 =====================
@@ -46,8 +47,8 @@ git clone https://github.com/kkdevopsb5/spring-boot-mongo-docker-kkfunda.git
 
 cd spring-boot-mongo-docker-kkfunda
 
-step 3: see the docker file "cat Dockerfile" may not work ask chtgt once to get Dockerfile
-------------------------------------------------------------------------------------------
+step 3: see the docker file "cat Dockerfile" may not work ask chtgt once to get Dockerfile below Dockerfile is not working which given by kkfunda
+--------------------------------------------------------------------------------------------------------------------------------------------------
 
 FROM openjdk:8-alpine
 
@@ -65,7 +66,7 @@ CMD ["java" ,"-jar","./spring-boot-mongo.jar"]
 
 ================================================================================
 
-#chtgpt given bcz above Dockerfile is not wrking
+#chtgpt given bcz above Dockerfile is not wrking use this
 
 # Stage 1: Build the application
 FROM maven:3.8.5-openjdk-8-slim AS build
@@ -93,21 +94,21 @@ CMD ["java", "-jar", "spring-boot-mongo.jar"]
 
 
 step 4: Build the arifact
--------
+-------------------------
 
 NOTE: make sure to install maven "sudo apt install maven"
 
 mvn clean package
 
 step 5: Build an image
--------
+----------------------
 
 docker build -t kkdevopsb4/springimage .
 
 docker images
 
 step 6: create a docker custom bridge network
--------
+---------------------------------------------
 
 NOTE: Developers are using the DB name for communication instead of IP of container , so we need to create a custom bridge network.
 
@@ -123,15 +124,15 @@ docker run -d --name springwebappcon --network bsnl -e MONGO_DB_HOSTNAME=mongo -
 
 1.Variable                   Meaning                                  Provided by
 ---------------------------------------------------------------------------------
-MONGO_DB_HOSTNAME   DB server hostname (or IP) where app connects     Developers
-MONGO_DB_USERNAME   Username for the application's DB user            Developers
-MONGO_DB_PASSWORD   Password for the application's DB user            Developers
+MONGO_DB_HOSTNAME   DB server hostname (or IP) where app connects     Developers istaru
+MONGO_DB_USERNAME   Username for the application's DB user            Developers istaru
+MONGO_DB_PASSWORD   Password for the application's DB user            Developers istaru
 
 NOTE: Tomcat is not there why we are using -p ? .... In springboot framework by default tomcat is installed.
 
 
 step 8: access the application
--------
+------------------------------
 
 http://IP:8080
 
@@ -149,12 +150,11 @@ docker run -d --name mongo --network bsnl -e MONGO_INITDB_ROOT_USERNAME=devdb -e
 MONGO_INITDB_ROOT_USERNAME   Admin / root username for MongoDB        Database (DB) Team
 MONGO_INITDB_ROOT_PASSWORD   Admin / root password for MongoDB        Database (DB) Team
 
-
-
 --> Now you can insert the data
 
+
 step 10: check the user info in the mongo db
---------
+---------------------------------------------
 
 ps -ef --> mongodb process is running 
 
@@ -184,16 +184,11 @@ step 11: see the default location of mongo
  docker exec mongo ls /data/db
 
 
-step 12: 
+step 12: delete the application container and recreate app, the data is available.
 
+step 13: delete the db(mongo) container and recreate a db(mongo), the data is not available.
 
-delete the application container and recreate app, the data is available.
-
-step 13:
-
-delete the db(mongo) container and recreate a db(mongo), the data is not available.
-
-That is the reason we need volumes, clear right
+That is the reason we need volumes
 
 once go and check old data is availble or not for confirmation
 
@@ -244,18 +239,17 @@ LAB
 ===
 
 step 1: remove the mongodb container
--------
+------------------------------------
 
 step 2: Then create a mongo DB container
--------
-
+----------------------------------------
 
 docker run -d --name mongo -v /home/ubuntu/prasanthprojects/spring-boot-mongo-docker-kkfunda/backup:/data/db --network jionetwork -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo:8.0.9-noble
 
 insert some data
 
 step 3: Recreate the mongo db container
--------
+---------------------------------------
 
 docker run -d --name mongo -v /home/ubuntu/spring-boot-mongo-docker-kkfunda/monga_bkp:/data/db --network jio -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 mongo:8.0.9-noble
 
