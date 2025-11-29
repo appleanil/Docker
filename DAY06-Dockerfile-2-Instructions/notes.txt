@@ -98,17 +98,15 @@ RUN mkdir -p /opt/app && \
 
 docker build -t firstimage .
 
-to see layers of docker images file----> docker history <imageName or image-ID>
+to see layers of docker images file ----> docker history <imageName or image-ID>
 
 
 
 
 IQ] what if we delete all the images and again build the docker file? what happens?
 
-
-Ans:  
-
-
+Ans: Docker will re-download the base image, rebuild all layers from scratch without cache, builds will be slower, 
+running containers won’t stop but will fail on restart, and internet access becomes mandatory.
 
 
 
@@ -142,7 +140,7 @@ RUN echo "welcome to kk devops"
 CMD ["date"]
 
  docker build -t firstimage1 .
- docker run --name firstc1 firstimage1
+ docker run --name firstcon1 firstimage1
 
  docker start firstc1
  
@@ -387,13 +385,9 @@ RUN echo $HOME
 RUN echo "welcome to kk devops"
 
 
-
-
-
 docker build -t imageone .
 
 docker inspect imageone --> you will the env variables
-
 
 
 
@@ -406,10 +400,6 @@ docker inspect imageone --> you will the env variables
 
 
 EX: WORKDIR /usr/local/tomcat
-
-
- 
-EX:
 
 FROM debian:12.0
 MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
@@ -427,7 +417,7 @@ RUN echo "welcome to kk devops"
 COPY abc.txt abc.txt
 
 
-docker inspect imageone --> you will the env variables  very very imp to check
+docker inspect imageone ---> you will the env variables  very very imp to check
 
 
 12. USER
