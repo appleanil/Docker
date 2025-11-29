@@ -256,6 +256,17 @@ docker run -d --name mongo -v /home/ubuntu/spring-boot-mongo-docker-kkfunda/mong
 
 Assignment: run the jenkins as a container and create a job check the volumes concept
 
+docker run -d \
+  --name jenkinswebappcon \
+  --network anil \
+  -p 8080:8080 \
+  -v jenkins_home:/var/jenkins_home \
+  jenkins/jenkins:lts
+
+docker run -d --name mongo --network anil -v anilvol:/data/db -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 
+mongo:8.0.9-noble
+
+
 
 =====================================================================================
 
@@ -306,6 +317,20 @@ How to inspect the volume?
 --------------------------
 
 docker inspect <vol-name>
+
+
+
+springwebapp up cheysina
+mongo db up cheysina
+mongo db del cheysina
+again mongo db create cheysina
+mongo db data old data undi
+
+so jenkins up cheyali
+mongo db up cheyali
+mongo db del cheyali
+again mongo db create cheyali
+mongo db data undali
 
 
 For verifcation
