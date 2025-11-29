@@ -113,7 +113,7 @@ threecon    172.18.0.2      2a:6e:e3:30:ed:e9
  fourcon         jio network        
  fivecon         airtel network 
 
-1. for the above airtel connection with jio tho chudali ante compulsory connecttions undali so use docker network connect jio fivecon then check 
+1. for the above airtel connection with jio tho chudali ante compulsory connection undali so use docker network connect jio fivecon then check 
 docker inspect jio it shows u added fivecon then u can check connection 
 2. and if u add fivecon to jio network then in airtel network lo fivecon untadi just connection ichamu anthe
 
