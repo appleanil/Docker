@@ -215,7 +215,7 @@ NOTE: please use shell form for ONLY RUN instructions, so we can replace variabl
 ---> but docker run -d -p 80:80 --name ubuntucon ubuntuimage ani container create cheystamo appudu matharam hello java radu bcz -d means detached mode 
 lo run avthundi
 
----> status check cheyali ante appudu use this command ----docker inspect <container-name or ID> --format '{{.Config.Cmd}}'--- it help us to show u kinda 
+---> status check cheyali ante appudu use this command ---- docker inspect <container-name or ID> --format '{{.Config.Cmd}}'--- it help us to show u kinda 
 hello java ani vasthudni
 
 ****
@@ -226,7 +226,7 @@ CMD echo "Hello java"
 
 if u not mention CMD echo "Hello java", it will take default conatinerID will show u
 
-* docker run sonarimage:0.0.1--------->another method to run the container 
+* docker run sonarimage:0.0.1 ---------> another method to run the container 
 
 * Here im not given container name(--name sonarcon) but it will take default like busy_joliot
 
@@ -257,7 +257,7 @@ and removed container. So that u need to be give CMD instruction in last line on
 3. In Dockerfile CMD echo "hello Python" then if u create a container it will not give u hello python bcz u need to be first build the images and then 
 run container. And if u observe here CMD instruction will execute the recent instrcution from hello java to hello python.
 
-4.In Dockerfile having single line CMD echo "hello java" in last line then create a container like this 
+4. In Dockerfile having single line CMD echo "hello java" in last line then create a container like this 
 
 docker run -d -p 8080:9000 --name sonarcon sonarqube:0.0.1 date   by adding date instead of not only date we can give pwd, uname, ls -lrth and any linux commands
 
