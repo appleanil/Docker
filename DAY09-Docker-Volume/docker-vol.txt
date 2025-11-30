@@ -259,6 +259,14 @@ docker run -d --name mongo -v /home/ubuntu/spring-boot-mongo-docker-kkfunda/mong
 Assignment: run the jenkins as a container and create a job check the volumes concept
 =====================================================================================
 
+SonarQube (Code Quality Tool)
+docker run -d --name sonarcon --network jio -p 9000:9000 -v sonarvol:/opt/sonarqube/data sonarqube:lts
+
+Nexus (Artifact Repository)
+docker run -d --name nexuscon --network jio -p 8082:8081 -v nexusvol:/nexus-data sonatype/nexus3
+
+
+
 1. JENKINS WITHOUT VOLUME → DATA LOST
 --------------------------------------
 
