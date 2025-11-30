@@ -1,0 +1,93 @@
+1. MongoDB → /data/db
+
+2. Jenkins → /var/jenkins_home
+
+3. SonarQube → /opt/sonarqube/data
+
+4. Nexus Repository → /nexus-data
+
+5. GitLab → /var/opt/gitlab
+
+6. MySQL → /var/lib/mysql
+
+7. Elasticsearch → /usr/share/elasticsearch/data
+
+8. Docker Registry → /var/lib/registry
+
+9. Grafana → /var/lib/grafana
+
+10. Prometheus → /prometheus
+
+1. Kubernetes (kubelet data) → /var/lib/kubelet
+
+2. Kubernetes (etcd database) → /var/lib/etcd
+
+3. Kubernetes (container runtime data - Docker) → /var/lib/docker
+
+4. Kubernetes (container runtime data - containerd) → /var/lib/containerd
+
+5. Kubernetes (certificates) → /etc/kubernetes/pki
+
+6. Kubernetes (manifests) → /etc/kubernetes/manifests
+
+
+7. Terraform (state file - local) → terraform.tfstate
+
+8. Terraform (hidden working dir) → .terraform/
+
+9. Terraform (plugin cache - optional) → ~/.terraform.d/plugin-cache/
+
+
+10. AWS CLI credentials → ~/.aws/credentials
+
+11. AWS CLI config → ~/.aws/config
+
+12. AWS EC2 cloud-init logs → /var/log/cloud-init.log
+
+13. AWS EC2 cloud-init output → /var/log/cloud-init-output.log
+
+
+14. Ansible (config file) → /etc/ansible/ansible.cfg
+
+15. Ansible (inventory - default) → /etc/ansible/hosts
+
+16. Ansible (user inventory alt) → ~/ansible/hosts
+
+17. Ansible (roles path default) → /etc/ansible/roles
+
+
+18. GitHub Actions (self-hosted runner work dir) → /home/runner/_work/
+
+19. GitHub Actions (runner config) → /home/runner/actions-runner/
+
+20. GitHub Actions (tool cache) → /opt/hostedtoolcache/
+
+
+
+21. Linux system logs → /var/log/
+
+22. Linux user data → /home/
+
+23. Linux mounted storage → /mnt/  and  /media/
+
+24. Linux temp files → /tmp/
+
+25. Linux services config → /etc/
+
+
+26. Red Hat logs → /var/log/
+
+27. Red Hat services → /etc/systemd/system/
+
+28. Red Hat packages database → /var/lib/rpm/
+
+29. Red Hat SELinux config → /etc/selinux/
+
+
+30. Tomcat base directory → /usr/local/tomcat/
+
+31. Tomcat webapps deploy path → /usr/local/tomcat/webapps/
+
+32. Tomcat logs → /usr/local/tomcat/logs/
+
+33. Tomcat configuration → /usr/local/tomcat/conf/
