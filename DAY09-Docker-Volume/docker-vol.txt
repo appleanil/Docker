@@ -255,20 +255,100 @@ docker run -d --name mongo -v /home/ubuntu/spring-boot-mongo-docker-kkfunda/mong
 
 
 Assignment: run the jenkins as a container and create a job check the volumes concept
-
-docker run -d \
-  --name jenkinswebappcon \
-  --network anil \
-  -p 8080:8080 \
-  -v jenkins_home:/var/jenkins_home \
-  jenkins/jenkins:lts
-
-docker run -d --name mongo --network anil -v anilvol:/data/db -e MONGO_INITDB_ROOT_USERNAME=devdb -e MONGO_INITDB_ROOT_PASSWORD=dev@123 
-mongo:8.0.9-noble
-
-
-
 =====================================================================================
+
+1. JENKINS WITHOUT VOLUME → DATA LOST
+--------------------------------------
+
+# 1) (Optional) Create network if not exists
+docker network create jionetwork
+
+# 2) Run Jenkins container WITHOUT volume (data only inside container)
+docker run -d -p 8081:8080 --name jenkinscon --network jio -p 8081:8080 jenkins/jenkins:lts
+
+# 3) Open Jenkins in browser (create 1–2 jobs)
+#    URL: http://<EC2-IP>:8081
+
+# 4) Delete the Jenkins container (all data inside is LOST)
+docker rm -f jenkinscon
+
+# 5) Run Jenkins AGAIN with same name but still NO volume
+docker run -d -p 8081:8080 --name jenkinscon --network jio -p 8081:8080 jenkins/jenkins:lts
+
+# 6) Open Jenkins again → previous jobs are GONE (data loss)
+#    URL: http://<EC2-IP>:8081
+
+
+
+2. Jenkins WITH volume → data PERSIST
+-------------------------------------
+
+
+# 1) Create a dedicated volume for Jenkins (different app → different volume)
+
+docker volume create jenkinsvol
+
+# 2) Run Jenkins WITH volume attached
+
+docker run -d -p 8081:8080 --name jenkinscon  --network jio  -v jenkinsvol:/var/jenkins_home jenkins/jenkins:lts
+
+# 3) Open Jenkins in browser and create 1–2 jobs
+#    URL: http://<EC2-IP>:8081
+
+# 4) (Optional) Check that jobs exist on disk inside container
+
+docker exec -it jenkinscon ls /var/jenkins_home/jobs
+
+# 5) Delete the Jenkins container (ONLY container is removed, volume stays)
+
+docker rm -f jenkinscon
+
+# 6) Re-create Jenkins container with SAME volume
+
+docker run -d -p 8081:8080 --name jenkinscon --network jio -v jenkinsvol:/var/jenkins_home jenkins/jenkins:lts
+
+# 7) Open Jenkins again → previous jobs are STILL THERE (no data loss)
+#    URL: http://<EC2-IP>:8081
+
+======================================================================================================================================
+
+
+❌ CASE 1: Jenkins WITHOUT Volume → Data is LOST
+
+1. Create a Jenkins container without attaching any volume.
+2. Open Jenkins in the browser.
+3. Create one or two jobs in Jenkins.
+4. Confirm the jobs are visible on the Jenkins dashboard.
+5. Delete the Jenkins container.
+6. Create a new Jenkins container again without a volume.
+7. Open Jenkins in the browser again.
+8. Try to find the previously created jobs.
+9. ✅ Result: All previous Jenkins jobs are LOST permanently.
+
+
+✅ CASE 2: Jenkins WITH Volume → Data is PERSISTENT
+
+1. Create a new dedicated volume only for Jenkins.
+   (Each application must have a different volume).
+2. Create a Jenkins container with this new Jenkins volume attached.
+3. Open Jenkins in the browser.
+4. Create one or two jobs in Jenkins.
+5. Confirm the jobs are visible on the Jenkins dashboard.
+6. Delete the Jenkins container.
+7. Re-create a new Jenkins container using the SAME Jenkins volume.
+8. Open Jenkins in the browser again.
+9. ✅ Result: All previously created Jenkins jobs are STILL AVAILABLE (NO DATA LOSS).
+
+
+✅ FINAL CONCLUSION (FOR INTERVIEW / NOTES)
+
+- Without a volume → Deleting the Jenkins container deletes all jobs.
+- With a dedicated volume → Deleting and recreating the container does NOT delete jobs.
+- Each application (Jenkins, MongoDB, Spring App) must always have its own separate volume.
+
+
+
+==============================================================================================================================
 
 
 IQ] Why we are going for Docker volumes insted of bind mount?
@@ -344,3 +424,25 @@ delete the mongo db container and recreate, data is available
 
 
 NOTE: external(network) volumes(EBS) we will discuss in AWS
+
+
+
+
+
+
+
+
+
+
+
+create a jenkinscon without vol
+access, add one r two jobs
+del the jenkinscon
+create again jenkins try to acces jenkins previous data
+data is loss
+
+create a vol (here different app have different volume so create another vol for jenkinscon)
+create con with vol 
+create 1 r 2 jobs in jenkinscon
+del the con, and
+re execuate same jenkinscon with new con
