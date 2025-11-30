@@ -106,4 +106,10 @@ How to see the images?
 
 docker-compose images
 
+How to delete docker-compose images?
+-------------------------------------
+docker-compose down --rmi all
+
+
+
 
