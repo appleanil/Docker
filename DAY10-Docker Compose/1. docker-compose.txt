@@ -81,6 +81,7 @@ sudo apt install docker-compose
 
 How to check the syntax?
 ------------------------
+
 docker-compose config
 
 
