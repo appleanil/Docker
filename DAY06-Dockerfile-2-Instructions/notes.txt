@@ -1,6 +1,14 @@
+CMD vs RUN vs ENTRYPOINT
+RUN is used to execute commands during image build, 
+CMD defines the default command at container runtime, and
+ENTRYPOINT specifies the fixed executable that always runs when the container starts.
+
+
 
 8. ENTRYPOINT
 -------------
+When debugging ENTRYPOINT issues, I check container logs, verify the ENTRYPOINT command and file paths, 
+ensure exec form is used, confirm permissions, and override ENTRYPOINT with --entrypoint for troubleshooting.
 
 --> CMD instruction used to execute a commands/ scripts etc.
 --> RUN instruction will be exuecuted while creating an image.
@@ -251,7 +259,9 @@ docker run imageone date
 sample dockerfile 7
 -------------------
 
-IQ] can we have a multiple ENTRYPOINT 's?
+IQ] can we have a multiple ENTRYPOINT
+
+Dockerfile can contain multiple ENTRYPOINT instructions, but only the last one is effective; earlier ones are overridden.
 
 
 FROM debian:12.0
@@ -291,7 +301,7 @@ ENTRYPOINT ["echo","Welcome"]
 ---> show the ngnix and jenkins Dockerfiles
 
 
-====================================
+=========================================================================
 
 
 
