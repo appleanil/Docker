@@ -160,16 +160,16 @@ docker ps -a \
   --filter "ancestor=ubuntu" \
   --filter "name=test"
 
-
+CONTAINER ID   IMAGE   COMMAND   CREATED   STATUS   PORTS   NAMES
 🧾 Quick Summary Table
 Filter Type	Command Example	Description
-By Container ID	docker ps -a --filter "id=ce72"	Match container ID
-By Name	docker ps -a --filter "name=nexus"	Match container name
-By Image	docker ps -a --filter "ancestor=sonarqube:latest"	Match image used
-By Status	docker ps -a --filter "status=running"	Filter by state
-By Exit Code	docker ps -a --filter "exited=0"	Filter by exit code
-By Network	docker ps -a --filter "network=bridge"	Containers in a network
-By Volume	docker ps -a --filter "volume=nexus-data"	Containers using volume
-By Label	docker ps -a --filter "label=maintainer=anil"	Match label
-By Before	docker ps -a --filter "before=sonarqube"	Created before another
-By Since	docker ps -a --filter "since=nexus"	Created after another
+By Container ID	docker ps -a --filter "id=ce72"	                      Match container ID
+By Name   	    docker ps -a --filter "name=nexus"	                  Match container name
+By Image	      docker ps -a --filter "ancestor=sonarqube:latest"	    Match image used
+By Status	      docker ps -a --filter "status=running"	              Filter by state
+By Exit Code	  docker ps -a --filter "exited=0"	                    Filter by exit code
+By Network	    docker ps -a --filter "network=bridge"	              Containers in a network
+By Volume	      docker ps -a --filter "volume=nexus-data"	            Containers using volume
+By Label	      docker ps -a --filter "label=maintainer=anil"	        Match label
+By Before	      docker ps -a --filter "before=sonarqube"	            Created before another
+By Since	      docker ps -a --filter "since=nexus"                 	Created after another
