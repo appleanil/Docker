@@ -111,7 +111,7 @@ docker ps -a --filter "status=running"
 
 🔢 6️⃣ Filter by Exit Code
 ==========================
-✅ Command:🟢 Shows containers that exited successfully (exit code 0).
+🟢 Shows containers that exited successfully (exit code 0).
 docker ps -a --filter "exited=<code>"
 
 docker ps -a --filter "exited=0"
