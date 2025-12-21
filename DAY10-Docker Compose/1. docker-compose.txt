@@ -1,6 +1,18 @@
 docker compose
 ===============
 
+--> ఒక YAML file ఉపయోగించి multiple containers ని together run చేయడానికి ఉపయోగించే tool.
+
+➡️ ఒకే command తో: అన్నీ start అవుతాయి
+
+1. App container
+
+2. Database container
+
+3. Network
+
+4. Volume
+
 --> Docker-compose is a tool, Used to define and run the multi container docker applications.
 
 --> IT is in YAML[yet another markup lang] format.
