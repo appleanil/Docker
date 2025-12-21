@@ -302,8 +302,40 @@ docker tag  kkeducation123456/java-web-app:1 customname
 
 
 
-docker system df
+docker system df ---------------------> is command
 ----------------
+
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          10        2         5.2GB     3.1GB
+Containers      6         1         800MB     600MB
+Local Volumes   4         2         1.5GB     700MB
+Build Cache     20        0         900MB     900MB
+
+🧠 Simple Meaning (Telugu)
+🔹 Images
+
+Docker images ఎంత ఉన్నాయి
+
+ఎంత space తీసుకుంటున్నాయి
+
+🔹 Containers
+
+Running + Stopped containers
+
+Containers disk usage
+
+🔹 Local Volumes
+
+Database data, persistent storage
+
+Volume size
+
+🔹 Build Cache
+
+docker build చేసినప్పుడు create అయ్యే temporary files
+
+Safe గా delete చేయొచ్చు
+
 
 
 docker images and container backup
