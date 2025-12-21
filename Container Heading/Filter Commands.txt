@@ -27,81 +27,71 @@ docker ps -a --filter "id=91b160bab7ea" -q
 c) Filter by status:
 docker ps -a --filter "status=exited" -q
 
-docker ps -a --filter "status=running" -q------------>running container ID
+docker ps -a --filter "status=running" -q ------------> running container ID
 
 🧱 1️⃣ Filter by Container ID
 =============================
-✅ Command:
-bash
-Copy code
+
 docker ps -a --filter "id=<container_id>"
-Example:
-bash
-Copy code
+
 docker ps -a --filter "id=ce72a5e6825e"
+
 🟢 Shows only that container.
+-----------------------------
 
 You can also use partial ID:
 
-bash
-Copy code
 docker ps -a --filter "id=ce72"
 
 
 🏷️ 2️⃣ Filter by Image (Repository + Tag)
 =========================================
-✅ Command:
-bash
-Copy code
-docker ps -a --filter "ancestor=<image_name>"
-Example:
-bash
-Copy code
-docker ps -a --filter "ancestor=sonarqube:latest"
 🟢 Shows all containers created from that image.
+-------------------------------------------------
 You can use partial image name like ancestor=sonarqube.
+
+docker ps -a --filter "ancestor=<image_name>"
+
+docker ps -a --filter "ancestor=sonarqube:latest"
+
+
 
 
 📦 3️⃣ Filter by Container Name
 ==============================
-✅ Command:
-bash
-Copy code
-docker ps -a --filter "name=<name>"
-Example:
-bash
-Copy code
-docker ps -a --filter "name=nexus"
 🟢 Shows all containers where the name matches (even partial names).
+
+docker ps -a --filter "name=<name>"
+
+docker ps -a --filter "name=nexus"
+
+
 
 
 ⏰ 4️⃣ Filter by Creation Time (Before / Since)
 ===============================================
 ✅ Command:
-bash
-Copy code
+------------
 docker ps -a --filter "before=<container_name_or_id>"
+
 → Shows containers created before that container.
 
-bash
-Copy code
 docker ps -a --filter "since=<container_name_or_id>"
+
 → Shows containers created after that container.
 
-Example:
-bash
-Copy code
 docker ps -a --filter "before=sonarqube"
 docker ps -a --filter "since=nexus"
 
 
 ⚙️ 5️⃣ Filter by Status
 =====================
-✅ Command:
-bash
-Copy code
+🟢 Lists containers in that state.
+
 docker ps -a --filter "status=<state>"
+
 States:
+
 created
 
 restarting
@@ -114,76 +104,62 @@ exited
 
 dead
 
-Example:
-bash
-Copy code
 docker ps -a --filter "status=exited"
 docker ps -a --filter "status=running"
-🟢 Lists containers in that state.
+
 
 
 🔢 6️⃣ Filter by Exit Code
-=========================
-✅ Command:
-bash
-Copy code
+==========================
+✅ Command:🟢 Shows containers that exited successfully (exit code 0).
 docker ps -a --filter "exited=<code>"
-Example:
-bash
-Copy code
+
 docker ps -a --filter "exited=0"
-🟢 Shows containers that exited successfully (exit code 0).
+
+
 
 
 🔗 7️⃣ Filter by Network
 =======================
-✅ Command:
-bash
-Copy code
+🟢 Shows all containers connected to the bridge network
+
 docker ps -a --filter "network=<network_name>"
-Example:
-bash
-Copy code
+
 docker ps -a --filter "network=bridge"
-🟢 Shows all containers connected to the bridge network.
+
+
 
 
 📁 8️⃣ Filter by Volume
 ========================
-✅ Command:
-bash
-Copy code
-docker ps -a --filter "volume=<volume_name>"
-Example:
-bash
-Copy code
-docker ps -a --filter "volume=nexus-data"
 🟢 Shows containers using that volume.
+
+docker ps -a --filter "volume=<volume_name>"
+
+docker ps -a --filter "volume=nexus-data"
+
+
 
 
 🏷️ 9️⃣ Filter by Label
 =======================
-✅ Command:
-bash
-Copy code
-docker ps -a --filter "label=<key=value>"
-Example:
-bash
-Copy code
-docker ps -a --filter "label=maintainer=anil"
 🟢 Shows containers built or run with that label.
+
+docker ps -a --filter "label=<key=value>"
+
+docker ps -a --filter "label=maintainer=anil"
+
 
 
 🧩 🔟 Combine Multiple Filters
 ===============================
-✅ Command:
-bash
-Copy code
+🟢 Shows all exited containers from ubuntu image with name containing test.
+
 docker ps -a \
   --filter "status=exited" \
   --filter "ancestor=ubuntu" \
   --filter "name=test"
-🟢 Shows all exited containers from ubuntu image with name containing test.
+
 
 🧾 Quick Summary Table
 Filter Type	Command Example	Description
