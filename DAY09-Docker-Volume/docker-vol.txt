@@ -1,6 +1,6 @@
 mongo default port no: 27017
 
-in real time we are using this type of methos i mean in linux mkdir backup and attacted to volume y cannot choose NFS and ECR
+in real time we are using this type of methods i mean in linux mkdir backup and attacted to volume y cannot choose NFS and ECR
 
 Docker volumes
 ==============
@@ -39,7 +39,8 @@ LAB
 step 1: fork the spring-boot-mongo-docker-kkfunda project into your account
 -------
 
-   url: https://github.com/kkdevopsb5/spring-boot-mongo-docker-kkfunda.git
+   url: https://github.com/kkdevopsb5/spring-boot-mongo-docker-kkfunda.git ---- kk funda
+        https://github.com/appleanil/spring-boot-mongo-docker-kkfunda.git ----- Anil Kumar
 
 step 2: clone the project 
 -------
@@ -96,7 +97,7 @@ CMD ["java", "-jar", "spring-boot-mongo.jar"]
 step 4: Build the arifact
 -------------------------
 
-NOTE: make sure to install maven "sudo apt install maven"
+NOTE: make sure to install maven "sudo apt install maven -y"
 
 mvn clean package
 
@@ -120,7 +121,7 @@ docker network ls
 step 7: create a container
 --------------------------
 
-docker run -d --name springwebappcon --network bsnl -e MONGO_DB_HOSTNAME=mongo -e MONGO_DB_USERNAME=devdb -e MONGO_DB_PASSWORD=dev@123 take image-name
+docker run -d --name springwebappcon --network bsnl -e MONGO_DB_HOSTNAME=mongo -e MONGO_DB_USERNAME=devdb -e MONGO_DB_PASSWORD=dev@123 oneimage (take image-name)
 
 1.Variable                   Meaning                                  Provided by
 ---------------------------------------------------------------------------------
