@@ -159,6 +159,18 @@ Example: COPY target/mavan-web-application.war /usr/local/tomcat/webapps/maven-w
 
 ADD <src> <dest>
 
+Files / folders / URLs ని image లోకి add చేయడానికి ఉపయోగిస్తారు.
+
+Simple Telugu Explanation
+
+ADD అంటే:
+
+Local files copy చేయగలదు
+
+Compressed files auto-extract చేస్తుంది
+
+Remote URL నుంచి download చేయగలదు
+
 Purpose: Similar to COPY, but with additional features like handling remote URLs and automatically extracting tar archives.
 
 
@@ -233,9 +245,9 @@ if u not mention CMD echo "Hello java", it will take default conatinerID will sh
 * And if u observe here in COMMAND col echo"hello java " is their 
 
 ubuntu@ip-172-31-12-23:~/dockerfiles$ docker run --name con2 two:latest
-----------
-hello java |
-----------
+-------------
+| hello java |
+-------------
 ubuntu@ip-172-31-12-23:~/dockerfiles$
 
 
