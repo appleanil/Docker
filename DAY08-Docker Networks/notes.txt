@@ -8,7 +8,7 @@
 7. Docker Container Commands
 8. Docker Dockerfile
 9. Docker Best Practices
-10. Docker Networks-------------------> This is the class
+10. Docker Networks -------------------> This is the class
 11. Docker Volumes
 12. Docker Compose & AWS ECR
 13. Docker Pipeline Script
@@ -60,7 +60,7 @@ docker inpect <ID network>
 How to add that container to another network?
 ---------------------------------------------
 
-for example : onecon,twocon---bridge network (default network),             threecon, fourcon----jio network
+for example : onecon,twocon --- bridge network (default network),             threecon, fourcon----jio network
 
 now im adding onecon to jio network --------------------> docker network connect jio onecon
 
@@ -79,13 +79,19 @@ How to remove a unused networks? Delete the network
 
 docker system prune  or  docker network prune  
 
-docker network rm <nwtwork-name>
+docker network rm <network-name>
 
 docker network rm jio
+
+IQ: How to troubleshoot network?
+
+ans:- I troubleshoot Docker networking by inspecting networks, verifying container IPs, 
+ensuring containers are on the same network, and checking port mappings and DNS resolution.
 
 
 To list ONLY the container names attached to a network
 ------------------------------------------------------
+To list only container names attached to a Docker network, we use docker network inspect with Go template formatting.
 
 * docker inspect -f '{{range .Containers}}{{.Name}} {{end}}' jio
 
