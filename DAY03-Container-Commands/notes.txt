@@ -20,11 +20,11 @@ docker start ubuntucontainer
 
 ---> docker run : It will create a container and it will start the container(process)
 
-1. docker run -d -p 8080:8080 --name javawebapp1 kkeducation12345/java-web-app----> Internet ki expose cheystv ante aa command use cheyali
+1. docker run -d -p 8080:8080 --name javawebapp1 kkeducation12345/java-web-app ----> Internet ki expose cheystv ante aa command use cheyali
 
-2. docker run --name container1 imagename ----------------------------------------> give container name which image base cheysukoni container build avvali 
+2. docker run --name container1 imagename ---------------------------------------->  give container name which image base cheysukoni container build avvali 
 
-3. docker run four ---------------------------------------------------------------> same name for image and container
+3. docker run four --------------------------------------------------------------->  same name for image and container
 
 
 
@@ -32,7 +32,7 @@ docker start ubuntucontainer
 How to list the running containers?
 -----------------------------------
 
-docker ps or docker container ls --> running containers
+docker ps or docker container ls --------> running containers
 
 docker ps -a or docker container ls -a --> All the containers
 
@@ -47,29 +47,29 @@ docker stop <cid>
 How to delete containers?
 --------------------------
 
-docker rm <cid> --> for stopped state containers
+docker rm <cid> -------> for stopped state containers
 
-docker rm -f <cid>  ---> for running containers
+docker rm -f <cid> --->  for running containers
 
 How to remove all conatners?
 -----------------------------
 
 docker rm -f <cid> <cid> ......
 
-docker rm -f $(docker ps -q) --> It will remove all running conainers
+docker rm -f $(docker ps -q) ----> It will remove all running conainers
 
-docker rm -f $(docker ps -aq) --> It will remove all conainers
+docker rm -f $(docker ps -aq) ---> It will remove all conainers
  
 
 
 HOW TO PICK PARTICULAR COLUMN
 =============================
 
-  1.  docker ps -a --format "{{.ID}} {{.Ports}}"--------> Container ID + Port ID
-  2.  docker ps -a --format "{{.ID}} {{.Names}}"--------> Container ID + Names
-  3.  docker ps -a --format "{{.ID}} {{.Command}}"------> Container ID + Command ID
-  4.  docker ps -a --format "{{.ID}} {{.Image}}"--------> Container ID + Image ID
-  5.  docker ps -a --format "{{.ID}}"-------------------> Container ID 
+  1.  docker ps -a --format "{{.ID}} {{.Ports}}"-------->  Container ID + Port ID
+  2.  docker ps -a --format "{{.ID}} {{.Names}}"-------->  Container ID + Names
+  3.  docker ps -a --format "{{.ID}} {{.Command}}"------>  Container ID + Command ID
+  4.  docker ps -a --format "{{.ID}} {{.Image}}"-------->  Container ID + Image ID
+  5.  docker ps -a --format "{{.ID}}"------------------->  Container ID 
   6.  docker ps -a --format "{{.ID}} {{.Status}}"--------> Container ID + Status ID up or exited
 
 
@@ -91,9 +91,9 @@ docker inspect --format '{{.State.OOMKilled}}' <container_id>
 
 docker inspect --format '{{.State.Running}}' <container_id>
 
-docker inspect --format "{{.State}} {{.Status}}" $(docker ps -aq)--------------------------------------> ALL CONTAINERS STATUS WILL DISPLAY
+docker inspect --format "{{.State}} {{.Status}}" $(docker ps -aq) --------------------------------------> ALL CONTAINERS STATUS WILL DISPLAY
 
-docker inspect 3369d1897ce3 --format '{{json .NetworkSettings}}' | grep -in "IPAddress"----------------> like this also we can practice
+docker inspect 3369d1897ce3 --format '{{json .NetworkSettings}}' | grep -in "IPAddress" ----------------> like this also we can practice
 
 
 
@@ -115,8 +115,8 @@ Status": "running",
 
 
 
-How to remove all stopeed conatainers?
---------------------------------------
+How to remove all stoped conatainers?
+-------------------------------------
 
 docker container prune
 
@@ -134,25 +134,42 @@ docker rm -f $(docker ps --filter status="exited" -aq)
 
 How to rename the container?
 ----------------------------
-
 docker rename <cid/name> <new name>
+
 
 how to restart the container?
 -----------------------------
-
 docker restart <cid/cname>
 
 
 
 IQ: What is port publish or port mapping in docker?
+Port mapping in Docker allows external users to access containerized applications by mapping a container port to a host machine port.
+
+🏠 House example
+----------------
+
+Container = House
+
+App port = Room inside house
+
+Host port = Main door
+
+Door open చేస్తేనే బయట వాళ్లు లోపలికి రావచ్చు.
+➡️ Port mapping = Door open చేయడం
+Host port = Outside
+
+Container port = Inside
+
+-p outside:inside
 
 
 IQ: What is the difference between docker stop and docker kill?
 
-docker stop: not force kill
-docker kill: force kill
+ docker stop: not force kill
+ docker kill: force kill
 
-docker stop will send SIGTERM first and then SIGKILL, It will kill the process with grace period.
+ docker stop will send SIGTERM first and then SIGKILL, It will kill the process with grace period.
 
  Whereas docker kill will send SIGKILL call, It will kill the process without grace period.
 
@@ -180,11 +197,50 @@ docker run -it --name test ubuntu /bin/bash
 How to trobule shoot or debug application which is running as a container?
 ---------------------------------------------------------------------------
 
+To troubleshoot a containerized application, I first check container status and logs, 
+then exec into the container to inspect processes, ports, environment variables, and configuration.
+I also verify port mapping, resource usage, and network connectivity.
+
 docker logs <cid/cname>
 
 docker logs --tail <number_of_lines> <cid/cname>
 
 docker logs -f <cid/cname>
+
+Use cases:
+
+App crash reason
+
+Port issue
+
+DB connection error, 
+
+IP address
+
+Mounted volumes
+
+Env variables
+
+Restart policy
+
+Wrong CMD / ENTRYPOINT
+
+App wrong path
+
+Missing dependency
+
+Memory limit exceeded?
+
+CPU spike?
+
+| Issue              | Cause                | Fix                 |
+| ------------------ | -------------------- | ------------------- |
+| Container exited   | App crash            | Check logs          |
+| App not accessible | Port mapping missing | `-p host:container` |
+| DB connection fail | Network / env issue  | Check inspect       |
+| Permission denied  | User issue           | Fix Dockerfile      |
+| App slow           | Resource limit       | Increase memory     |
+
 
 
 How to go inside the container?
@@ -246,6 +302,14 @@ docker cp Is a command copy files/dirs to container or to a system
 
 what is the use of docker diff?
 -------------------------------
+
+docker diff is used to check filesystem changes made inside a Docker container compared to its original image.
+
+Easy Memory Trick
+
+diff = difference
+
+Image vs Container difference
 
 docker diff <cid/cname>
 
