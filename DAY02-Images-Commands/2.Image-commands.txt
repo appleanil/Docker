@@ -159,7 +159,7 @@ METHOD-3
 
 * USE SCP COMMAND
 
-scp -i ~Downloads/pem file ubuntu@192.168.1.100:/home/ubuntu/filename
+scp -i ~/Downloads/1111.pem ubuntu@13.127.88.192:/home/ubuntu/maven-webapplication-project-kkfunda/one.tar ~/Downloads/
 
 docker save -o IMAGE_NAME.tar IMAGE_NAME:TAG -------------------------------------> we can give image ID and image NAME
 
