@@ -158,7 +158,7 @@ RUN echo "welcome to kk devops"
 
 --------------------------------------------------------------
 
-use logical AND operations &&   for point number 4
+use logical AND operations && for point number 4
 
 Docker file 6 --> After Reduced the number of layers
 -----------------------------------------------------
@@ -180,13 +180,13 @@ RUN echo "welcome to kkkfunda" && \
 COPY test.sh .
 
 
-(Root Cause Analysis (RCA) search in CHTGPT it will give explained in class and plz give text format to copy)
-
-timeline of incidents is 
+(Root Cause Analysis (RCA) search in CHTGPT it will give explained in class and plz give text format to copy) timeline of incidents is 
 1. The investigation was initiated within 5 minutes of issue detection.
 2. The root cause was identified within the next 5 minutes.
 3. Following the root cause identification, restoration activities were immediately initiated.
 4. The service was restored successfully, and continuous monitoring was enabled to ensure stable operations. 
+example -- The issue occurred because the Docker latest tag was reused, causing production to pull an image with old code instead of the intended version.
+clear explaination example plz check in blog -------- https://blog.kkdevops.com/docker-image-issue-in-production-real-time-story/
 
 
 
