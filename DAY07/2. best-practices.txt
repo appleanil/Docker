@@ -142,6 +142,8 @@ build image and container
 Docker file 5 --> Before Reduce the number of layers
 ----------------------------------------------------
 
+docker history imagename
+
 FROM debian:12.0
 MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
 LABEL author="kkfunda"
@@ -194,10 +196,11 @@ Docker file 6 ---> Try to run as a normal user
 1. Always use a normal (non-root) user instead of the root user.
 
 2. Using the root user is risky because it has full permissions and may accidentally delete critical files or folders, 
-  which can cause serious issues.
+   which can cause serious issues.
 
 3. When a normal user (for example, anilkumar) is used, deletion of important system files or folders is restricted due to limited permissions,
    which helps prevent accidental damage.
+
 
 # Use the official Tomcat image as the base image
 FROM tomcat:9.0
@@ -209,7 +212,7 @@ RUN groupadd -r myusergroup && \
 # Change ownership of Tomcat directories to the new user
 RUN chown -R kkdevops:myusergroup /usr/local/tomcat && \
     chmod -R 544 /usr/local/tomcat
-
+   # chmod -R 544 /usr/local/tomcat u can check this
 # Switch to the new user
 USER anilkumar
 
@@ -229,9 +232,15 @@ FROM test3:latest
 # Switch to root user
 USER root
 
+====================================================================================================================================
+
 
 Docker file 7  ---> Multi stage Docker file
---------------
+-------------------------------------------
+
+we dnt want these many layers from Install maven to Build the maven project so that we are going to multi docker file above two docker files 
+
+
 FROM tomcat:9.0.100
 
 # Install Maven
@@ -250,20 +259,58 @@ RUN mvn clean package
 WORKDIR /usr/local/tomcat/webapps
 
 # Copy the built WAR file to Tomcat's webapps directory
-RUN cp /app/target/maven-web-app*.war /usr/local/tomcat/webapps/maven-web-app.war
-
-
-
+RUN cp /app/target/maven-web-application*.war /usr/local/tomcat/webapps/maven-web-application.war
 
 
 -----------
 
-FROM maven:3.9.6-eclipse-temurin-17 AS aaa
+** here anil is name means which can give any names for FROM maven:3.9.6-eclipse-temurin-17 edi save cheysi daniki okka name assign cheyali ade anil
+later aa name (anil) tho read cheyali in COPY instructions lo
+
+
+FROM maven:3.9.6-eclipse-temurin-17 AS anil  
 WORKDIR /app
 COPY . .
 RUN mvn clean package
 
 FROM tomcat:9.0.100
-COPY --from=aaa /app/target/maven-web-app*.war /usr/local/tomcat/webapps/maven-web-app.war
+COPY --from=anil /app/target/maven-web-application*.war /usr/local/tomcat/webapps/maven-web-application.war
+
+
+
+go and check ekart web application
+git clone git url
+docker build -t ekartimage -f Docker/dockerfile .
+docker run -d -p 8070:8070 --name ekartcon ekartimage
+
+
+
+later check once in blog also
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
