@@ -87,7 +87,7 @@ Example for light weight Docker file 2
 Dont copy unnecessary files and dirs
 ------------------------------------
 
-1. FROM tomcat:8.0.21-jre8
+1. FROM tomcat:9.0.100
    COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
    COPY . .
 
@@ -156,9 +156,9 @@ RUN apt install git wget -y
 RUN mkdir -p /opt/app
 RUN echo "welcome to kk devops"
 
---------------------------------------------------------------
 
 use logical AND operations && for point number 4
+
 
 Docker file 6 --> After Reduced the number of layers
 -----------------------------------------------------
@@ -179,6 +179,8 @@ RUN echo "welcome to kkkfunda" && \
 
 COPY test.sh .
 
+===========================================================================================================================================
+
 
 (Root Cause Analysis (RCA) search in CHTGPT it will give explained in class and plz give text format to copy) timeline of incidents is 
 1. The investigation was initiated within 5 minutes of issue detection.
@@ -190,7 +192,7 @@ clear explaination example plz check in blog -------- https://blog.kkdevops.com/
 
 
 
-Docker file 6 ---> Try to run as a normal user
+Docker file 7 ---> Try to run as a normal user
 ----------------------------------------------
 
 1. Always use a normal (non-root) user instead of the root user.
@@ -203,7 +205,7 @@ Docker file 6 ---> Try to run as a normal user
 
 
 # Use the official Tomcat image as the base image
-FROM tomcat:9.0
+FROM tomcat:9.0.100
 
 # Create a new user and group
 RUN groupadd -r myusergroup && \
@@ -211,7 +213,7 @@ RUN groupadd -r myusergroup && \
 
 # Change ownership of Tomcat directories to the new user
 RUN chown -R kkdevops:myusergroup /usr/local/tomcat && \
-    chmod -R 544 /usr/local/tomcat
+    chmod -R 755 /usr/local/tomcat
    # chmod -R 544 /usr/local/tomcat u can check this
 # Switch to the new user
 USER anilkumar
@@ -238,7 +240,7 @@ USER root
 Docker file 7  ---> Multi stage Docker file
 -------------------------------------------
 
-we dnt want these many layers from Install maven to Build the maven project so that we are going to multi docker file above two docker files 
+** we dnt want these many layers from Install maven to Build the maven project so that we are going to multi docker file above two docker files 
 
 
 FROM tomcat:9.0.100
@@ -262,7 +264,6 @@ WORKDIR /usr/local/tomcat/webapps
 RUN cp /app/target/maven-web-application*.war /usr/local/tomcat/webapps/maven-web-application.war
 
 
------------
 
 ** here anil is name means which can give any names for FROM maven:3.9.6-eclipse-temurin-17 edi save cheysi daniki okka name assign cheyali ade anil
 later aa name (anil) tho read cheyali in COPY instructions lo
@@ -276,7 +277,7 @@ RUN mvn clean package
 FROM tomcat:9.0.100
 COPY --from=anil /app/target/maven-web-application*.war /usr/local/tomcat/webapps/maven-web-application.war
 
-
+========================================================================================================================================================
 
 go and check ekart web application
 git clone git url
@@ -285,32 +286,6 @@ docker run -d -p 8070:8070 --name ekartcon ekartimage
 
 
 
-later check once in blog also
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+later check once in blog also --> https://blog.kkdevops.com/docker-best-practices/
 
 
