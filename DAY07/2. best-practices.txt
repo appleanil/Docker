@@ -5,14 +5,17 @@ Docker Best Practices
 
 2. try to use alpine images as base images where its possible/available.
 
-3. Don't copy/add  unnecessary files/folders which are not required,  size of image will increase, If you are not interested to copy files or dirs, Then keep those in .dockerignore file.
+3. Don't copy/add  unnecessary files/folders which are not required,  size of image will increase, 
 
+   If you are not interested to copy files or dirs, Then keep those in .dockerignore file.
 
-   --> Don't install unnecessary softwares also
+ --> Don't install unnecessary softwares also
 
 COPY . .
 
 4. Try to redue the number of layers of an image as much as possible, By combining related 	commands to RUN instruction.
+
+example -- use logical AND operations &&
 
 5. Use multi stage docker builds to reduse the size and number of layers of a image.
 
@@ -24,39 +27,24 @@ COPY . .
 
 
 
-
-Example for light weight Docker file 1
----------------------------------------
-
-FROM nginx:alpine
-COPY index.html /usr/share/nginx/html
-#NOTE: create index.html in build context
+** 2. Try to use alpine images as base images where its possible/available.
 
 insert html code in index.html
 build image and create container then 
 docker exec -it containerID r name bash
 cd /usr/share/nginx/html then ls -lrth index.html is there in that location
-create one vi tesh.html and insert some code then access with IP address with context file means file name (test.html) in real time it as home, contact, like this
+create one vi tesh.html and insert some code then access with IP address with context file means file name (test.html) 
+in real time it as home, contact, like this
 
+Example for light weight Docker file 1
+--------------------------------------
 
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html
+#NOTE: create index.html in build context
 
-
-Docker file 2
---------------
-
-FROM openjdk:11-jdk
-WORKDIR /app
-COPY target/maven-standalone-application*.jar maven-standalone-application.jar 
-CMD ["java","-jar","maven-standalone-application.jar"]
-
-
-
-
-
-
-
-Docker file 3 --> alpine example
--------------
+Example for light weight Docker file 2
+--------------------------------------
 
 FROM alpine:latest
 MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
@@ -74,7 +62,8 @@ RUN echo $HOME
 
 CMD ["echo","Hello"]
 
---------
+Example for light weight Docker file 3
+--------------------------------------
 
 FROM alpine:latest
 MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
@@ -87,38 +76,71 @@ RUN apk add git wget
 CMD ["sh","test.sh"]
 
 
+================================================================================================================================
 
 
+** 3. Don't copy/add  unnecessary files/folders which are not required, size of image will increase
+
+Example for light weight Docker file 2
+--------------------------------------
+
+Dont copy unnecessary files and dirs
+------------------------------------
+
+1. FROM tomcat:8.0.21-jre8
+   COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
+   COPY . .
+
+2. FROM nginx:alpine
+   COPY . .
+
+in present dir having all file will copy to default dir of container 
+we can see docker exec -it containerID r name bash /sh /bin/bash
+then check ls -lrth all files copy to container
 
 
+====================================================================================================================================
 
 
-Docker file 4 --> Dont copy unnecessary files and dirs
-----------------
+** If you are not interested to copy files or dirs, Then keep those in .dockerignore file.
 
-FROM tomcat:8.0.21-jre8
-COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
+Example for .dockerignore
+-------------------------
+
+FROM nginx:alpine
 COPY . .
 
+create one .dockerignore file and insert which is not copy to container or not copy to another dir
+ vi .dockerignore
+<filename1>
+<filename2>
+ls -lrtha
+docker built -t image1 .     or   docker build -t image1 -f dockerfile1
+docker run -d -p 80:80 --name nginx image1
+then check docker exec -it containerID r name bash
+ls -lrth we can see there is no file is copy in another or container
 
-IQ] what is .dockerignore   file?
-
-Ans:
-
-
-
-
-
-
-
-
-
+======================================================================================================================================
 
 
+Docker file 
+-----------
+
+FROM openjdk:11-jdk
+WORKDIR /app
+COPY target/maven-standalone-application*.jar maven-standalone-application.jar 
+CMD ["java","-jar","maven-standalone-application.jar"]
+
+assingnment git clone standlone app from git
+run this goal mvn clean package
+build image and container
+
+======================================================================================================================================
 
 
-Docker file 5 --> Reduse the number of layers
--------------
+
+Docker file 5 --> Before Reduce the number of layers
+----------------------------------------------------
 
 FROM debian:12.0
 MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
@@ -132,26 +154,64 @@ RUN apt install git wget -y
 RUN mkdir -p /opt/app
 RUN echo "welcome to kk devops"
 
+--------------------------------------------------------------
 
+use logical AND operations &&   for point number 4
+
+Docker file 6 --> After Reduced the number of layers
+-----------------------------------------------------
+
+FROM debian:12.0
+
+LABEL author="kkfunda" \
+      email="kkeducationblr@gmail.com"
+
+WORKDIR /opt/app
+
+RUN echo "welcome to kkkfunda" && \
+    apt update -y && \
+    apt install -y git wget && \
+    apt clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    echo "welcome to kk devops"
+
+COPY test.sh .
+
+
+(Root Cause Analysis (RCA) search in CHTGPT it will give explained in class and plz give text format to copy)
+
+timeline of incidents is 
+1. The investigation was initiated within 5 minutes of issue detection.
+2. The root cause was identified within the next 5 minutes.
+3. Following the root cause identification, restoration activities were immediately initiated.
+4. The service was restored successfully, and continuous monitoring was enabled to ensure stable operations. 
 
 
 
 Docker file 6 ---> Try to run as a normal user
--------------
+----------------------------------------------
+
+1. Always use a normal (non-root) user instead of the root user.
+
+2. Using the root user is risky because it has full permissions and may accidentally delete critical files or folders, 
+  which can cause serious issues.
+
+3. When a normal user (for example, anilkumar) is used, deletion of important system files or folders is restricted due to limited permissions,
+   which helps prevent accidental damage.
 
 # Use the official Tomcat image as the base image
 FROM tomcat:9.0
 
 # Create a new user and group
 RUN groupadd -r myusergroup && \
-    useradd -r -m -g myusergroup -s /bin/bash kkdevops
+    useradd -r -m -g myusergroup -s /bin/bash anilkumar
 
 # Change ownership of Tomcat directories to the new user
 RUN chown -R kkdevops:myusergroup /usr/local/tomcat && \
-    chmod -R 755 /usr/local/tomcat
+    chmod -R 544 /usr/local/tomcat
 
 # Switch to the new user
-USER kkdevops
+USER anilkumar
 
 # Optionally, add custom configuration or application files
 # COPY ./my-app.war /usr/local/tomcat/webapps/
@@ -191,8 +251,6 @@ WORKDIR /usr/local/tomcat/webapps
 
 # Copy the built WAR file to Tomcat's webapps directory
 RUN cp /app/target/maven-web-app*.war /usr/local/tomcat/webapps/maven-web-app.war
-
-
 
 
 
