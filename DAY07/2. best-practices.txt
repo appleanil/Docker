@@ -47,20 +47,21 @@ Example for light weight Docker file 2
 --------------------------------------
 
 FROM alpine:latest
-MAINTAINER KKFUNDA <kkeducationblr@gmail.com>
-LABEL author="kkfunda"
-LABEL email="kkeducationblr@gmail.com"
-RUN echo "welcome to kkkfunda"
-COPY test.sh test.sh
-WORKDIR /opt/app
-RUN apt update -y
-RUN apt install git wget -y
-RUN mkdir -p /opt/app
 
-ENV HOME /opt/app
+LABEL author="kkfunda" email="kkeducationblr@gmail.com"
+
+WORKDIR /opt/app
+
+RUN echo "welcome to kkkfunda" && apk update && apk add git wget
+
+COPY test.sh test.sh
+
+ENV HOME=/opt/app
+
 RUN echo $HOME
 
-CMD ["echo","Hello"]
+CMD ["echo", "Hello"]
+
 
 Example for light weight Docker file 3
 --------------------------------------
