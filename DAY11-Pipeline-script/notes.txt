@@ -1,3 +1,5 @@
 https://gettingstartedwithdocker.hashnode.dev/building-cicd-pipeline-jenkins-and-sonarqube-docker-image-on-ci-server-remote-docker-deployment-via-cd-server
 
 sometimes sonarqube configaration is not works so that plz go through Chtgpt paste all pipeline code script, tools, system config
+
+Nexus, Sonaqube, Quality gates, Quality codes plz watch Youtube channel tech savvy ops for docker with jenkins having more information
