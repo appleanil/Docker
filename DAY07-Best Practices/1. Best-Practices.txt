@@ -191,6 +191,22 @@ COPY test.sh .
 example -- The issue occurred because the Docker latest tag was reused, causing production to pull an image with old code instead of the intended version.
 clear explaination example plz check in blog -------- https://blog.kkdevops.com/docker-image-issue-in-production-real-time-story/
 
+https://blog.kkdevops.com/category/docker/     all those having blog
+
+1. Production Issue RCA – DevOps Engineer Perspective
+
+2. Production Deployment Failure – Real-Time Scenario with RCA
+
+3. Production Issue: Home Page Loading Slow for All Users
+
+4. Production Issue: Disk Full Due to Logs
+
+5. Production Issue: Wrong Docker Image Deployed
+
+6. Docker Image Issue in Production – Real-Time Story
+
+7. Real-Time DevOps Issue: Deployment Failure in Production due to Misconfigured Environment Variables
+
 
 
 Docker file 7 ---> Try to run as a normal user
