@@ -25,14 +25,18 @@ COPY . .
 
 
 
-Docker file 1
--------------
+Example for light weight Docker file 1
+---------------------------------------
 
 FROM nginx:alpine
 COPY index.html /usr/share/nginx/html
 #NOTE: create index.html in build context
 
-
+insert html code in index.html
+build image and create container then 
+docker exec -it containerID r name bash
+cd /usr/share/nginx/html then ls -lrth index.html is there in that location
+create one vi tesh.html and insert some code then access with IP address with context file means file name (test.html) in real time it as home, contact, like this
 
 
 
