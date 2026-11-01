@@ -16,7 +16,6 @@ METHOD-1
 
 METHOD-2
 ========
-
 Correct ways to filter by container:
 a) Filter by container name:
 docker ps -a --filter "name=my-container" -q
