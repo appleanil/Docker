@@ -65,6 +65,12 @@ HOW TO PICK PARTICULAR COLUMN
   4.  docker ps -a --format "{{.ID}} {{.Image}}"-------->  Container ID + Image ID
   5.  docker ps -a --format "{{.ID}}"------------------->  Container ID 
   6.  docker ps -a --format "{{.ID}} {{.Status}}"--------> Container ID + Status ID up or exited
+  7.  docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Image}}\t{{.Status}}" 
+CONTAINER ID   NAMES      IMAGE         STATUS
+530867d9a14b   kumarcon   maven:1.0.0   Up 8 minutes
+f87f8a1d4607   kumar      maven:1.0.0   Created
+88a79b7ff13a   anilcon    maven:1.0.0   Up 16 minutes
+
 
 
 
