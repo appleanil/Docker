@@ -18,12 +18,10 @@
 
 Class brief Explaination
 ========================
-
 Create small Dockerfile
 
 for practice Dockerfile networks
 --------------------------------
-
 FROM tomcat:9.0.100
 COPY target/maven-web-application.war /usr/local/tomcat/webapps/maven-web-application.war
 RUN apt-get update -y && \
@@ -48,7 +46,6 @@ ping <IPAddress>      (or)     ping <container_name>      (or)      curl -v teln
 
 How many container in a Network ?
 --------------------------------
-
 docker network ls
 
 take network ID
@@ -59,7 +56,6 @@ docker inpect <ID network>
 
 How to add that container to another network?
 ---------------------------------------------
-
 for example : onecon,twocon --- bridge network (default network),             threecon, fourcon----jio network
 
 now im adding onecon to jio network --------------------> docker network connect jio onecon
@@ -76,7 +72,6 @@ docker inspect jio
 
 How to remove a unused networks? Delete the network
 -----------------------------------------------------
-
 docker system prune  or  docker network prune  
 
 docker network rm <network-name>
@@ -127,7 +122,6 @@ docker inspect jio it shows u added fivecon then u can check connection
 
 Docker Networks
 ===============
-
 --> Docker networks are used to establish communication between containers.
 --> If both the containers are same network we can establish the connection.
 --> If you are not mention any network, while creating a container, It will be created in "default bridge network".
@@ -141,18 +135,15 @@ Docker Networks
 
 How to list a docker networks?
 ------------------------------
-
 docker network ls
 
 How to see the container is created in which network?
 ------------------------------------------------------
-
 docker inspect <cid>
 
 
 How to check both the containers are connected or not?
 -------------------------------------------------------
-
 step 0: create a two containers.
 
 step 1: go inside the container one
@@ -185,7 +176,6 @@ Ans: Incase of default bridge network the communication can happen through only 
 
 How to create a network in docker?
 ----------------------------------
-
 Syntax: docker network create -d <driver> <networkname>
 
 EX: docker network create -d bridge jionetwork
@@ -200,7 +190,6 @@ docker inspect <network-name>
 
 How to create a container in network?
 -------------------------------------
-
 docker run -d -p 8080:8080 --network jionetwork --name mavenwebapp kkeducation123456/maven-web-app:1.2
 
 docker run -d -p 8081:8080 --network jionetwork --name javawebapp kkeducation123456/maven-web-app:1.2
@@ -230,7 +219,6 @@ docker inspect javawebappbridge
 
 What is docker host network?
 ----------------------------
-
 If we create container in host network, Container will not have an IP address.
 
 NOTE: We can not create more than one container with same container port in the host network.
@@ -248,7 +236,6 @@ EX: docker run -d --network host --name javawebapp kkeducation123456/maven-web-a
 
 What is none network?
 ---------------------
-
 --> If you create containers in none network, Container will not have an IP address.
 --> we can not access these containers from outside or from any containers or internally.
 
