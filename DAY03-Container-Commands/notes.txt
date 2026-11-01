@@ -192,7 +192,11 @@ docker logs <cid/cname>
 
 docker logs --tail <number_of_lines> <cid/cname>
 
-docker logs -f <cid/cname>
+docker logs -f containername  ------------> live logs
+docker logs --tail 5 containername
+docker logs --tail 50 containername
+docker logs -t containername ----------> time stamps
+docker logs -f --tail 100 containername
 
 Use cases:
 
