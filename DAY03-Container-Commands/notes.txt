@@ -1,9 +1,7 @@
 Container commands
 ==================
-
 How to create a container?
 --------------------------
-
 ---> docker create : It will create a container, But it will not start the container(process)
 
 docker create -p 8080:8080 --name javawebapp kkeducation12345/java-web-app
@@ -15,6 +13,7 @@ docker create --name ubuntucontainer ubuntu
 docker ps -a
 
 docker start ubuntucontainer
+
 
 (IQ: what is the difference between docker create and run?)
 
@@ -31,7 +30,6 @@ docker start ubuntucontainer
 
 How to list the running containers?
 -----------------------------------
-
 docker ps or docker container ls --------> running containers
 
 docker ps -a or docker container ls -a --> All the containers
@@ -39,21 +37,18 @@ docker ps -a or docker container ls -a --> All the containers
 
 How to start and stop containers?
 ----------------------------------
-
 docker start <cid>
 
 docker stop <cid>
 
 How to delete containers?
 --------------------------
-
 docker rm <cid> -------> for stopped state containers
 
 docker rm -f <cid> --->  for running containers
 
 How to remove all conatners?
 -----------------------------
-
 docker rm -f <cid> <cid> ......
 
 docker rm -f $(docker ps -q) ----> It will remove all running conainers
@@ -64,7 +59,6 @@ docker rm -f $(docker ps -aq) ---> It will remove all conainers
 
 HOW TO PICK PARTICULAR COLUMN
 =============================
-
   1.  docker ps -a --format "{{.ID}} {{.Ports}}"-------->  Container ID + Port ID
   2.  docker ps -a --format "{{.ID}} {{.Names}}"-------->  Container ID + Names
   3.  docker ps -a --format "{{.ID}} {{.Command}}"------>  Container ID + Command ID
@@ -76,7 +70,6 @@ HOW TO PICK PARTICULAR COLUMN
 
 How to inspect a container?
 ---------------------------
-
 docker inspect <cid/cname>
 
 docker inspect --format "{{.NetworkSettings.IPAddress}}" mavenapp
@@ -117,7 +110,6 @@ Status": "running",
 
 How to remove all stoped conatainers?
 -------------------------------------
-
 docker container prune
 
 Removes all stopped containers.
@@ -148,7 +140,6 @@ Port mapping in Docker allows external users to access containerized application
 
 🏠 House example
 ----------------
-
 Container = House
 
 App port = Room inside house
@@ -176,27 +167,23 @@ IQ: What is the difference between docker stop and docker kill?
 
 How to pause the container process?
 ------------------------------------
-
 docker pause <cid/cname>
 docker unpause <cid/cname>
 
 How to delete only paused containers?
 -------------------------------------
-
 docker rm -f $(docker ps --filter status="paused")
 
 
 
 How to create a container in interative mode?
 ---------------------------------------------
-
 docker run -it --name test ubuntu /bin/bash
 
 
 
 How to trobule shoot or debug application which is running as a container?
 ---------------------------------------------------------------------------
-
 To troubleshoot a containerized application, I first check container status and logs, 
 then exec into the container to inspect processes, ports, environment variables, and configuration.
 I also verify port mapping, resource usage, and network connectivity.
@@ -245,25 +232,21 @@ CPU spike?
 
 How to go inside the container?
 -------------------------------
-
 docker exec -it <cid/name> /bin/bash
 
 
 execute commands on running container
 -------------------------------------
-
 docker exec 5a7b9937d4df ls
 
 
 How to display which process is running inside the container?
 -------------------------------------------------------------
-
 docker top <cid/cname>
 
 
 How to display resource(RAM,CPU) details?
 -----------------------------------------
-
 docker stats <cid/cname>
 
 IQ: Is it possible to allocate custom memory?
@@ -283,8 +266,6 @@ docker inspect --format '{{.State.OOMKilled}}' ubuntu
 
 How to copy files from system to continer and container to system?
 --------------------------------------------------------------------
-
-
 docker cp con-name:/usr/local/tomcat/logs/catalina.2025-05-17.log catalina.2025-05-17.log
 
 
@@ -302,7 +283,6 @@ docker cp Is a command copy files/dirs to container or to a system
 
 what is the use of docker diff?
 -------------------------------
-
 docker diff is used to check filesystem changes made inside a Docker container compared to its original image.
 
 Easy Memory Trick
@@ -317,7 +297,6 @@ docker diff <cid/cname>
 
 what is docker commit?
 -----------------------
-
 docker commit <cid/cname> kkeducation12345/java-web-app:24
 
 
