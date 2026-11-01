@@ -1,6 +1,5 @@
 Class-2-Brief Explanation:
 ==========================
-
 Step-01: Install Docker using 
 
 1. sudo apt update -y
@@ -59,15 +58,6 @@ Step-13: Go to EC2 → Security Groups → Inbound rules → Add port number 808
 
 Step-14: Copy the EC2 public IP and paste it in the browser with the context path /maven-web-application
 Example: http://<your-ec2-ip>:8081/maven-web-application
-
-
-
-
-
-
-
-
-
 
 
 
