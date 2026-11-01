@@ -1,6 +1,5 @@
 docker compose
 ===============
-
 --> ఒక YAML file ఉపయోగించి multiple containers ని together run చేయడానికి ఉపయోగించే tool.
 
 ➡️ ఒకే command తో: అన్నీ start అవుతాయి
@@ -33,13 +32,10 @@ ans: app
 
 How to write docker compose file?
 =================================
-
 version:
 services:
 volumes:
 networks:
-
-
 
 EX:
 ---
@@ -77,29 +73,24 @@ volumes:
 
 How to save a file?
 -------------------
-
 docker-compose.yaml
 
 How to see the version?
 -----------------------
-
 docker-compose version
 
 
 How to install docker-compose?
 ------------------------------
-
 sudo apt install docker-compose
 
 How to check the syntax?
 ------------------------
-
 docker-compose config
 
 
 How to run docker-compose?
 ---------------------------
-
 docker-compose up -d
 
 
@@ -110,18 +101,12 @@ docker-compose down
 
 How to see containers?
 ----------------------
-
 docker-compose ps -a
 
 How to see the images?
 ----------------------
-
 docker-compose images
 
 How to delete docker-compose images?
 -------------------------------------
 docker-compose down --rmi all
-
-
-
-
