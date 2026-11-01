@@ -121,7 +121,7 @@ docker network ls
 step 7: create a container
 --------------------------
 
-docker run -d --name springwebappcon --network bsnl -e MONGO_DB_HOSTNAME=mongo -e MONGO_DB_USERNAME=devdb -e MONGO_DB_PASSWORD=dev@123 oneimage (take image-name)
+docker run -d -p 8080:8080--name springwebappcon --network bsnl -e MONGO_DB_HOSTNAME=mongo -e MONGO_DB_USERNAME=devdb -e MONGO_DB_PASSWORD=dev@123 <image-name>
 
 1.Variable                   Meaning                                  Provided by
 ---------------------------------------------------------------------------------
